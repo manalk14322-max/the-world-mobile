@@ -4,6 +4,10 @@ import { products } from "@/data/mock-data";
 import { ProductInteraction } from "@/components/product-interaction";
 import { ProductTabs } from "@/components/product-tabs";
 
+export function generateStaticParams() {
+  return products.map((product) => ({ id: product.id }));
+}
+
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = products.find((item) => item.id === params.id);
   if (!product) return notFound();
