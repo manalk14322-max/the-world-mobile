@@ -90,11 +90,6 @@ export function FeaturedProducts() {
           </Link>
         </div>
 
-        <div className="mb-4 flex items-center justify-between gap-3 rounded-xl border border-black/10 bg-secondary-bg px-3 py-2.5 sm:px-4 sm:py-3">
-          <p className="text-[14px] text-muted sm:text-[15px]">Auto-moving showcase, drag to explore quickly.</p>
-          <span className="rounded-full bg-black px-4 py-1.5 text-[13px] font-semibold text-white">Drag</span>
-        </div>
-
         <div
           ref={trackRef}
           className={`hide-scrollbar flex gap-4 overflow-x-auto pb-2 sm:gap-6 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
