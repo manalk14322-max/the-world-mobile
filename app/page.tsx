@@ -10,9 +10,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TrustStrip />
       <CategoriesSection />
       <FeaturedProducts />
-      <TrustStrip />
       <BestSellersSection />
       <TestimonialsSection />
       <NewsletterSection />

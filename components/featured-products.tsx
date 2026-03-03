@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Star } from "lucide-react";
 import { products } from "@/data/mock-data";
 import { useFadeInOnScroll } from "@/lib/use-fade-in-on-scroll";
 
@@ -32,6 +33,12 @@ export function FeaturedProducts() {
               <div className="p-4">
                 <h3 className="text-xl font-bold text-text">{product.name}</h3>
                 <p className="mt-1 text-[20px] font-extrabold text-accent">EUR {product.price}</p>
+                <div className="mt-2 flex items-center gap-1 text-gold">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={14} fill={i < Math.round(product.rating) ? "currentColor" : "none"} />
+                  ))}
+                  <span className="ml-1 text-[13px] font-semibold text-muted">{product.rating}</span>
+                </div>
                 <p className="mt-2 text-[15px] text-muted">{product.description}</p>
               </div>
             </article>

@@ -16,13 +16,13 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-black/15 bg-white/95 backdrop-blur">
       <div className="container flex h-20 items-center gap-3">
-        <Link href="/" className="shrink-0 text-xl font-extrabold tracking-tight text-text sm:text-2xl">
+        <Link href="/" className="shrink-0 text-xl font-black tracking-tight text-text sm:text-2xl">
           The world mobile
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {nav.map((item) => (
             <Link key={item.label} href={item.href} className="text-[16px] font-medium text-text transition hover:text-accent">
               {item.label}
@@ -31,7 +31,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto hidden items-center gap-2 md:flex">
-          <div className="flex h-11 w-64 items-center rounded-xl border border-black/10 bg-secondary-bg px-3">
+          <div className="flex h-11 w-64 items-center rounded-full border border-black/10 bg-secondary-bg px-3 shadow-sm">
             <Search size={16} className="text-muted" />
             <input
               placeholder="Search products"

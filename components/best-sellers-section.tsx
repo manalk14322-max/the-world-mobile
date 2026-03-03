@@ -8,10 +8,10 @@ export function BestSellersSection() {
   return (
     <section className="section py-8 sm:py-12">
       <div className="container">
-        <h2 className="mb-6 text-2xl font-extrabold text-text sm:text-3xl">Best Sellers</h2>
+        <h2 className="mb-6 text-center text-2xl font-extrabold text-text sm:text-3xl">Best Sellers</h2>
         <div className="hide-scrollbar flex gap-4 overflow-x-auto pb-2">
           {top.map((product) => (
-            <article key={product.id} className="w-[82vw] shrink-0 overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm sm:w-[44vw] lg:w-[30%]">
+            <article key={product.id} className="card-premium w-[82vw] shrink-0 overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm sm:w-[44vw] lg:w-[30%]">
               <Image
                 src={product.images[0]}
                 alt={product.name}
