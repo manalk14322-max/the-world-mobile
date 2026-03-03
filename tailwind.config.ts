@@ -5,11 +5,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#000000",
+        primary: "#1E40AF",
         background: "#FFFFFF",
-        "secondary-bg": "#F7F7F7",
-        accent: "#008060",
-        text: "#111111",
+        "secondary-bg": "#F8FAFC",
+        accent: "#1E40AF",
+        gold: "#F59E0B",
+        text: "#111827",
         muted: "#6B7280"
       },
       borderRadius: {
