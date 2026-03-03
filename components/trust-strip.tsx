@@ -1,12 +1,12 @@
 "use client";
 
-import { CreditCard, Headphones, ShieldCheck, Truck } from "lucide-react";
+import { Headphones, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { useFadeInOnScroll } from "@/lib/use-fade-in-on-scroll";
 
 const items = [
   { icon: Truck, title: "Fast Delivery in Europe" },
-  { icon: ShieldCheck, title: "Secure Checkout" },
-  { icon: CreditCard, title: "Multiple Payment Methods" },
+  { icon: ShieldCheck, title: "Secure Payments" },
+  { icon: RotateCcw, title: "Easy Returns" },
   { icon: Headphones, title: "24/7 Support" }
 ];
 

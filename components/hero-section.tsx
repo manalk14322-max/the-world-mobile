@@ -16,7 +16,7 @@ export function HeroSection() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#111827]/88 via-[#111827]/62 to-[#111827]/35" />
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 flex items-center pt-8 sm:pt-0">
           <div className="max-w-3xl px-6 text-white sm:px-10">
             <h1 className="text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">
               Discover Premium Mobile Essentials
@@ -25,7 +25,7 @@ export function HeroSection() {
               Quality Products at European Standards for modern Spanish customers.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/#top-products" className="pressable rounded-xl bg-accent px-6 py-3 text-[16px] font-semibold text-white shadow-sm transition hover:opacity-90">
+              <Link href="/#top-products" className="pressable rounded-xl bg-accent px-7 py-3.5 text-[17px] font-semibold text-white shadow-sm transition hover:opacity-90">
                 Shop Now
               </Link>
               <Link href="/#categories" className="pressable rounded-xl border border-white/70 px-6 py-3 text-[16px] font-semibold transition hover:bg-white hover:text-text">
@@ -34,10 +34,10 @@ export function HeroSection() {
             </div>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">
-                Free EU Delivery
+                Free EU Shipping
               </span>
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">
-                30-Day Returns
+                Secure Payments
               </span>
             </div>
           </div>
