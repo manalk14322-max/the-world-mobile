@@ -78,26 +78,26 @@ export function FeaturedProducts() {
   };
 
   return (
-    <section id="featured" className="section bg-white">
+    <section id="featured" className="section bg-white py-10 sm:py-16">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8">
           <div>
             <p className="text-[14px] font-medium text-accent">Top picks this week</p>
-            <h2 className="text-3xl font-extrabold md:text-4xl">Featured Mobiles</h2>
+            <h2 className="text-2xl font-extrabold sm:text-3xl md:text-4xl">Featured Mobiles</h2>
           </div>
           <Link href="/product/iphone-15-pro-max" className="text-[16px] text-accent">
             View all
           </Link>
         </div>
 
-        <div className="mb-4 flex items-center justify-between gap-3 rounded-xl border border-black/10 bg-secondary-bg px-4 py-3">
-          <p className="text-[15px] text-muted">Auto-moving showcase, drag to explore quickly.</p>
+        <div className="mb-4 flex items-center justify-between gap-3 rounded-xl border border-black/10 bg-secondary-bg px-3 py-2.5 sm:px-4 sm:py-3">
+          <p className="text-[14px] text-muted sm:text-[15px]">Auto-moving showcase, drag to explore quickly.</p>
           <span className="rounded-full bg-black px-4 py-1.5 text-[13px] font-semibold text-white">Drag</span>
         </div>
 
         <div
           ref={trackRef}
-          className={`hide-scrollbar flex gap-6 overflow-x-auto pb-2 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+          className={`hide-scrollbar flex gap-4 overflow-x-auto pb-2 sm:gap-6 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
@@ -107,7 +107,7 @@ export function FeaturedProducts() {
           {loopedProducts.map((product, index) => (
             <article
               key={`${product.id}-${index}`}
-              className="group w-[82vw] shrink-0 overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:shadow-md sm:w-[46vw] lg:w-[31%]"
+              className="group w-[86vw] shrink-0 overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:shadow-md sm:w-[46vw] lg:w-[31%]"
             >
               <div className="relative overflow-hidden">
                 <Image
@@ -115,7 +115,7 @@ export function FeaturedProducts() {
                   alt={product.name}
                   width={700}
                   height={800}
-                  className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
+                  className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
                 />
                 <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[12px] font-semibold text-text shadow-sm">
                   {product.category}

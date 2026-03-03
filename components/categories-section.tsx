@@ -25,13 +25,13 @@ export function CategoriesSection() {
   const { ref, visible } = useFadeInOnScroll();
 
   return (
-    <section id="categories" className="section bg-secondary-bg">
+    <section id="categories" className="section bg-secondary-bg py-10 sm:py-16">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <p className="text-[14px] font-medium text-accent">Explore collections</p>
-          <h2 className="text-3xl font-extrabold md:text-4xl">Shop by Mobile Category</h2>
+          <h2 className="text-2xl font-extrabold sm:text-3xl md:text-4xl">Shop by Mobile Category</h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
           {categories.map((category) => (
             <article key={category.name} className="group relative overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
               <div className="overflow-hidden">
@@ -40,7 +40,7 @@ export function CategoriesSection() {
                   alt={category.name}
                   width={800}
                   height={900}
-                  className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
+                  className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-80"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />

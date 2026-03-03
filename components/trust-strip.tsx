@@ -9,14 +9,14 @@ const items = [
 
 export function TrustStrip() {
   return (
-    <section className="section pt-6">
+    <section className="section pb-8 pt-4 sm:pt-6">
       <div className="container">
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
-            <article key={item.title} className="rounded-xl border border-black/10 bg-white p-5 shadow-sm">
+            <article key={item.title} className="rounded-xl border border-black/10 bg-white p-4 shadow-sm sm:p-5">
               <item.icon size={20} className="text-accent" />
-              <h3 className="mt-3 text-xl font-bold">{item.title}</h3>
-              <p className="mt-1 text-[16px] text-muted">{item.text}</p>
+              <h3 className="mt-2 text-lg font-bold sm:mt-3 sm:text-xl">{item.title}</h3>
+              <p className="mt-1 text-[15px] text-muted sm:text-[16px]">{item.text}</p>
             </article>
           ))}
         </div>

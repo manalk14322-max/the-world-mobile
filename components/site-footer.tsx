@@ -4,11 +4,11 @@ import { BrandLogo } from "./brand-logo";
 
 export function SiteFooter() {
   return (
-    <footer className="section border-t border-black/10 bg-secondary-bg">
-      <div className="container grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="section border-t border-black/10 bg-secondary-bg py-10 sm:py-16">
+      <div className="container grid gap-7 sm:gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <BrandLogo />
-          <p className="mt-3 text-[16px] text-muted">Trusted mobile store for latest smartphones and accessories.</p>
+          <p className="mt-3 text-[15px] text-muted sm:text-[16px]">Trusted mobile store for latest smartphones and accessories.</p>
         </div>
 
         <div>
@@ -44,7 +44,7 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="container mt-12 border-t border-black/10 pt-6 text-[15px] text-muted">
+      <div className="container mt-8 border-t border-black/10 pt-5 text-[14px] text-muted sm:mt-12 sm:pt-6 sm:text-[15px]">
         Copyright {new Date().getFullYear()} The world mobile. All rights reserved.
       </div>
     </footer>

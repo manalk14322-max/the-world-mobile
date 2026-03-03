@@ -1,13 +1,13 @@
 export function NewsletterSection() {
   return (
-    <section id="newsletter" className="section bg-secondary-bg">
+    <section id="newsletter" className="section bg-secondary-bg py-10 sm:py-16">
       <div className="container">
         <div className="mx-auto max-w-5xl overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm">
-          <div className="grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-10">
+          <div className="grid gap-5 p-5 sm:gap-6 sm:p-8 md:grid-cols-[1fr_auto] md:items-center md:p-10">
             <div>
               <p className="text-[14px] font-medium text-accent">Exclusive members list</p>
-              <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">Get Mobile Deals First</h2>
-              <p className="mt-2 text-[17px] text-muted">
+              <h2 className="mt-2 text-2xl font-extrabold sm:text-3xl md:text-4xl">Get Mobile Deals First</h2>
+              <p className="mt-2 text-[16px] text-muted sm:text-[17px]">
                 Subscribe for launch alerts, limited-time discounts, and exclusive premium offers.
               </p>
             </div>

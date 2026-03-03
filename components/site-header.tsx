@@ -49,13 +49,13 @@ export function SiteHeader() {
     >
       <div className={`container ${isHome ? "pt-6" : ""}`}>
         <div
-          className={`flex h-20 items-center justify-between rounded-xl px-5 ${
+          className={`flex h-16 items-center justify-between rounded-xl px-3 sm:h-20 sm:px-5 ${
             transparentMode
               ? "border border-white/20 bg-white/10 text-white backdrop-blur-md"
               : "border border-black/10 bg-white text-text shadow-sm"
           }`}
         >
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <button
               className={`rounded-full border p-2 transition ${
                 transparentMode
@@ -67,8 +67,11 @@ export function SiteHeader() {
             >
               <Menu size={18} />
             </button>
-            <Link href="/" aria-label="The world mobile home">
-              <BrandLogo light={transparentMode} compact />
+            <Link href="/" aria-label="The world mobile home" className="hidden sm:inline-flex">
+              <BrandLogo light={transparentMode} compact shortOnMobile />
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 sm:hidden" aria-label="The world mobile home">
+              <span className={`text-sm font-extrabold tracking-tight ${transparentMode ? "text-white" : "text-text"}`}>TWM</span>
             </Link>
           </div>
 
@@ -92,7 +95,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/checkout"
-              className={`pressable rounded-xl px-5 py-2.5 text-[16px] font-semibold shadow-sm transition ${
+              className={`pressable hidden rounded-xl px-5 py-2.5 text-[16px] font-semibold shadow-sm transition md:inline-flex ${
                 transparentMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:opacity-90"
               }`}
             >

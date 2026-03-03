@@ -3,9 +3,10 @@ import { Smartphone } from "lucide-react";
 type BrandLogoProps = {
   light?: boolean;
   compact?: boolean;
+  shortOnMobile?: boolean;
 };
 
-export function BrandLogo({ light = false, compact = false }: BrandLogoProps) {
+export function BrandLogo({ light = false, compact = false, shortOnMobile = false }: BrandLogoProps) {
   return (
     <div className={`inline-flex items-center gap-2.5 ${compact ? "" : "gap-3"}`}>
       <span
@@ -16,12 +17,21 @@ export function BrandLogo({ light = false, compact = false }: BrandLogoProps) {
         <Smartphone size={18} />
       </span>
       <div className="leading-none">
-        <p className={`text-[11px] font-semibold uppercase tracking-[0.2em] ${light ? "text-white/80" : "text-muted"}`}>
+        <p className={`hidden text-[11px] font-semibold uppercase tracking-[0.2em] sm:block ${light ? "text-white/80" : "text-muted"}`}>
           Premium Store
         </p>
-        <p className={`${compact ? "text-lg" : "text-xl md:text-2xl"} font-extrabold tracking-tight`}>
-          The world mobile
-        </p>
+        {shortOnMobile ? (
+          <>
+            <p className={`${compact ? "text-base" : "text-lg"} font-extrabold tracking-tight sm:hidden`}>TWM</p>
+            <p className={`${compact ? "hidden sm:block sm:text-lg" : "hidden sm:block sm:text-xl md:text-2xl"} font-extrabold tracking-tight`}>
+              The world mobile
+            </p>
+          </>
+        ) : (
+          <p className={`${compact ? "text-lg" : "text-xl md:text-2xl"} font-extrabold tracking-tight`}>
+            The world mobile
+          </p>
+        )}
       </div>
     </div>
   );
