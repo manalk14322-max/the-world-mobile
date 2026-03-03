@@ -33,7 +33,13 @@ a {
 }
 
 .section {
-  padding-block: 4rem;
+  padding-block: 5rem;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: 3.25rem;
+  }
 }
 
 .fade-in {
@@ -49,6 +55,14 @@ a {
 
 .pressable:active {
   transform: scale(0.98);
+}
+
+.card-premium {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
 }
 
 .hide-scrollbar {

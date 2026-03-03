@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="section pb-10 pt-6 sm:pt-8">
+    <section className="section pb-12 pt-6 sm:pt-8">
       <div className="container relative overflow-hidden rounded-xl border border-black/10">
         <Image
           src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=80"
@@ -22,7 +22,7 @@ export function HeroSection() {
               Discover Premium Mobile Essentials
             </h1>
             <p className="mt-4 max-w-2xl text-[18px] text-white/90">
-              Quality Products at European Standards
+              Quality Products at European Standards for modern Spanish customers.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/#top-products" className="pressable rounded-xl bg-accent px-6 py-3 text-[16px] font-semibold text-white shadow-sm transition hover:opacity-90">
