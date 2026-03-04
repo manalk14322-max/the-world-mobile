@@ -12,6 +12,7 @@ export function BestSellersSection() {
   return (
     <section className="section py-8 sm:py-12">
       <div className="container">
+        <p className="text-center text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Tendencias" : "Trending now"}</p>
         <h2 className="mb-6 text-center text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Mas vendidos" : "Best Sellers"}</h2>
         <div className="hide-scrollbar flex gap-4 overflow-x-auto pb-2">
           {top.map((product) => (

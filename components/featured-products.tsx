@@ -14,7 +14,10 @@ export function FeaturedProducts() {
   return (
     <section id="top-products" className="section py-8 sm:py-12">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <h2 className="mb-6 text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Top Productos" : "Top Products"}</h2>
+        <div className="mb-6">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Seleccion para Espana" : "Curated for Spain"}</p>
+          <h2 className="text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Top productos" : "Top Products"}</h2>
+        </div>
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {products.map((product) => (
             <article key={product.id} className="card-premium group overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm hover:shadow-md">

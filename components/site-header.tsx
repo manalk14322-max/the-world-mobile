@@ -104,9 +104,9 @@ export function SiteHeader() {
       </div>
 
       <div className="container flex h-20 items-center gap-3">
-        <button onClick={() => setOpen(true)} className="inline-flex items-center gap-2 rounded-full bg-[#2563EB] px-3 py-2 text-white shadow-sm transition hover:opacity-90" aria-label="Open categories">
+        <button onClick={() => setOpen(true)} className="inline-flex items-center gap-2 rounded-full bg-[#2563EB] px-4 py-2.5 text-white shadow-sm transition hover:opacity-90" aria-label="Open categories">
           <Menu size={18} />
-          <span className="hidden text-[15px] font-semibold sm:inline">{language === "es" ? "All Categories" : "All Categories"}</span>
+          <span className="hidden text-[15px] font-semibold sm:inline">{language === "es" ? "Todas las categorias" : "All Categories"}</span>
         </button>
 
         <Link href="/" className="shrink-0">
@@ -145,25 +145,27 @@ export function SiteHeader() {
       </div>
 
       <div className={`fixed inset-0 z-[60] transition ${open ? "pointer-events-auto bg-black/35 opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setOpen(false)} />
-      <aside className={`fixed inset-y-0 left-0 z-[70] w-[310px] border-r border-black/10 bg-white p-4 shadow-md transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}>
-        <div className="mb-4 flex items-center justify-between">
-          <button className="inline-flex items-center gap-2 rounded-full bg-[#2563EB] px-4 py-2 text-[15px] font-semibold text-white">
-            <Menu size={17} />
-            {language === "es" ? "All Categories" : "All Categories"}
-          </button>
-          <button onClick={() => setOpen(false)} className="rounded-xl p-2 hover:bg-secondary-bg" aria-label="Close menu">
-            <X size={18} />
-          </button>
-        </div>
-
-        <div className="space-y-1.5">
-          {categories.map((item) => (
-            <button key={item.label} className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left transition hover:bg-secondary-bg">
-              <item.icon size={18} className="text-text" />
-              <span className="text-[15px] font-semibold text-text">{item.label}</span>
-              <ChevronRight size={15} className="ml-auto text-muted" />
+      <aside className={`fixed inset-y-0 left-0 z-[70] w-[310px] border-r border-black/10 bg-white shadow-md transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="flex h-full flex-col bg-white">
+          <div className="flex items-center justify-between border-b border-black/10 px-4 py-4">
+            <button className="inline-flex items-center gap-2 rounded-full bg-[#2563EB] px-4 py-2 text-[15px] font-semibold text-white">
+              <Menu size={17} />
+              {language === "es" ? "Todas las categorias" : "All Categories"}
             </button>
-          ))}
+            <button onClick={() => setOpen(false)} className="rounded-xl p-2 hover:bg-secondary-bg" aria-label="Close menu">
+              <X size={18} />
+            </button>
+          </div>
+
+          <div className="hide-scrollbar flex-1 overflow-y-auto px-2 py-2">
+            {categories.map((item) => (
+              <button key={item.label} className="flex w-full items-center gap-3 border-b border-black/5 px-3 py-3 text-left transition hover:bg-secondary-bg">
+                <item.icon size={18} className="text-text" />
+                <span className="text-[15px] font-semibold text-text">{item.label}</span>
+                <ChevronRight size={15} className="ml-auto text-muted" />
+              </button>
+            ))}
+          </div>
         </div>
       </aside>
 

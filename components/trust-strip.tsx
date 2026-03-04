@@ -18,9 +18,12 @@ export function TrustStrip() {
   return (
     <section className="section py-8 sm:py-12">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <h2 className="mb-6 text-2xl font-extrabold text-text sm:text-3xl">
-          {language === "es" ? "Por que confian en nosotros" : "Why Customers Trust Us"}
-        </h2>
+        <div className="mb-6">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Compra con confianza" : "Buy with confidence"}</p>
+          <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
+            {language === "es" ? "Por que confian en nosotros" : "Why Customers Trust Us"}
+          </h2>
+        </div>
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
             <article key={item.title} className="card-premium rounded-xl border border-black/10 bg-white p-5 shadow-sm">

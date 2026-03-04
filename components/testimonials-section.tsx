@@ -21,6 +21,7 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="section py-8 sm:py-12">
       <div className="container">
+        <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Prueba social" : "Social proof"}</p>
         <h2 className="mb-6 text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Resenas de clientes" : "Customer Testimonials"}</h2>
         <article className="rounded-xl border border-black/10 bg-white p-6 shadow-md sm:p-8">
           <Quote size={28} className="text-accent" />

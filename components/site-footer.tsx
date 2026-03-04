@@ -15,9 +15,9 @@ export function SiteFooter() {
           <p className="mt-2 text-[15px] text-muted">
             {language === "es" ? "Accesorios premium para clientes europeos." : "Premium mobile essentials for European customers."}
           </p>
-          <p className="mt-3 text-[15px] text-text">Address: Calle de Alcala 45, Madrid, Spain</p>
+          <p className="mt-3 text-[15px] text-text">{language === "es" ? "Direccion: Calle de Alcala 45, Madrid, Espana" : "Address: Calle de Alcala 45, Madrid, Spain"}</p>
           <p className="mt-4 text-[15px] text-text">Email: support@theworldmobile.eu</p>
-          <p className="text-[15px] text-text">Phone: +34 600 123 456</p>
+          <p className="text-[15px] text-text">{language === "es" ? "Telefono: +34 600 123 456" : "Phone: +34 600 123 456"}</p>
         </div>
 
         <div>

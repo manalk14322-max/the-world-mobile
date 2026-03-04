@@ -64,14 +64,20 @@ const staticCopy = {
     secondary: "Ver colecciones",
     badge1: "Entrega 24-48h en Espana",
     badge2: "Pago seguro SSL",
-    badge3: "Garantia oficial europea"
+    badge3: "Garantia oficial europea",
+    stat1: "2,000+ clientes felices",
+    stat2: "Entrega media 24h",
+    stat3: "4.9/5 valoracion real"
   },
   en: {
     primary: "Shop Now",
     secondary: "View Collections",
     badge1: "24-48h delivery in Spain",
     badge2: "Secure SSL checkout",
-    badge3: "Official EU warranty"
+    badge3: "Official EU warranty",
+    stat1: "2,000+ happy customers",
+    stat2: "24h average dispatch",
+    stat3: "4.9/5 verified rating"
   }
 } as const;
 
@@ -119,11 +125,11 @@ export function HeroSection() {
         </button>
 
         <div className="absolute inset-0 flex items-center">
-          <div className="max-w-3xl px-6 text-white sm:px-10">
+          <div className="max-w-2xl px-6 text-white sm:px-10">
             <p className="mb-3 inline-flex rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/95">
               {language === "es" ? "Tienda premium en Espana" : "Premium store for Spain"}
             </p>
-            <h1 className="text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
               {language === "es" ? slide.esTitle : slide.enTitle}
             </h1>
             <p className="mt-5 max-w-2xl text-[18px] text-white/90">
@@ -141,6 +147,11 @@ export function HeroSection() {
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge1}</span>
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge2}</span>
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge3}</span>
+            </div>
+            <div className="mt-6 grid max-w-xl gap-2 text-[13px] sm:grid-cols-3">
+              <div className="rounded-lg border border-white/30 bg-white/10 px-3 py-2 font-semibold">{text.stat1}</div>
+              <div className="rounded-lg border border-white/30 bg-white/10 px-3 py-2 font-semibold">{text.stat2}</div>
+              <div className="rounded-lg border border-white/30 bg-white/10 px-3 py-2 font-semibold">{text.stat3}</div>
             </div>
           </div>
         </div>

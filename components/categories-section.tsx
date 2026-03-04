@@ -17,7 +17,10 @@ export function CategoriesSection() {
   return (
     <section id="categories" className="section py-8 sm:py-12">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <h2 className="mb-5 text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Categorias" : "Categories"}</h2>
+        <div className="mb-5">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Coleccion destacada" : "Featured Collection"}</p>
+          <h2 className="text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Categorias premium" : "Premium Categories"}</h2>
+        </div>
         <div className="grid gap-4 md:grid-cols-3">
           {categories.map((category) => (
             <article key={category.label} className="group rounded-xl border border-black/10 bg-white p-6 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-md">
