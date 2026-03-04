@@ -69,18 +69,18 @@ export const products: Product[] = [
 
 export const testimonials = [
   {
-    name: "Sara Ahmed",
-    text: "Original phone, sealed pack, and fast delivery. Manal Shop service was excellent.",
+    name: "Lucia M.",
+    text: "Producto original, entrega en 24 horas y atencion impecable. Compra totalmente fiable en Espana.",
     stars: 5
   },
   {
-    name: "Hamza Noor",
-    text: "I upgraded to a new Samsung from here. Smooth checkout and genuine product.",
+    name: "Carlos R.",
+    text: "Compre mi Samsung aqui y todo fue profesional: pago seguro, envio rapido y calidad excelente.",
     stars: 5
   },
   {
-    name: "Areeba Khan",
-    text: "Best rates for mobiles and accessories. Support team helped me pick the right model.",
+    name: "Marta G.",
+    text: "Muy buena experiencia de compra, precios claros y devolucion sencilla. Recomendado.",
     stars: 4
   }
 ];

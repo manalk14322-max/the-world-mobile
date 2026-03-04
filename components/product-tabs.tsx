@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 
-const tabs = ["Description", "Details", "Shipping", "Reviews"] as const;
+const tabs = ["Descripcion", "Detalles", "Envio", "Resenas"] as const;
 
 type Props = {
   rating: number;
 };
 
 export function ProductTabs({ rating }: Props) {
-  const [active, setActive] = useState<(typeof tabs)[number]>("Description");
+  const [active, setActive] = useState<(typeof tabs)[number]>("Descripcion");
 
   return (
     <div className="mt-10 rounded-xl border border-black/10">
@@ -26,16 +26,16 @@ export function ProductTabs({ rating }: Props) {
       </div>
 
       <div className="p-5 text-[16px] text-muted">
-        {active === "Description" && (
-          <p>Original PTA-approved mobile phone with premium build quality and long-term software support.</p>
+        {active === "Descripcion" && (
+          <p>Smartphone original con acabados premium, rendimiento fluido y soporte oficial para uso diario profesional.</p>
         )}
-        {active === "Details" && (
-          <p>Includes official box pack, charging cable, and standard manufacturer warranty for peace of mind.</p>
+        {active === "Detalles" && (
+          <p>Incluye caja oficial, cable de carga y garantia del fabricante para una compra segura y confiable.</p>
         )}
-        {active === "Shipping" && (
-          <p>Orders dispatch within 24 hours. Delivery typically takes 2-4 business days with live tracking.</p>
+        {active === "Envio" && (
+          <p>Despacho rapido con entrega en 24-48h en Espana y seguimiento activo desde el primer dia.</p>
         )}
-        {active === "Reviews" && <p>Rated {rating}/5 by verified buyers with consistent quality feedback.</p>}
+        {active === "Resenas" && <p>Valorado con {rating}/5 por clientes verificados con opiniones consistentes de calidad.</p>}
       </div>
     </div>
   );

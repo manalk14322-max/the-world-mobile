@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { Menu, Search, ShoppingCart, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BrandLogo } from "./brand-logo";
+import { products } from "@/data/mock-data";
 
 const nav = [
   { label: "Home", href: "/" },
@@ -14,15 +16,29 @@ const nav = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(2);
+  const [bump, setBump] = useState(false);
+
+  useEffect(() => {
+    const onAdd = () => {
+      setCartCount((prev) => prev + 1);
+      setBump(true);
+      setCartOpen(true);
+      setTimeout(() => setBump(false), 450);
+    };
+    window.addEventListener("cart:add", onAdd);
+    return () => window.removeEventListener("cart:add", onAdd);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/15 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur">
       <div className="container flex h-20 items-center gap-3">
-        <Link href="/" className="shrink-0 text-xl font-black tracking-[0.01em] text-text sm:text-2xl">
-          The world mobile
+        <Link href="/" className="shrink-0">
+          <BrandLogo shortOnMobile />
         </Link>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-8 xl:gap-10 lg:flex">
           {nav.map((item) => (
             <Link key={item.label} href={item.href} className="text-[16px] font-medium text-text transition hover:text-accent">
               {item.label}
@@ -31,28 +47,28 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto hidden items-center gap-2 md:flex">
-          <div className="flex h-11 w-64 items-center rounded-full border border-black/10 bg-secondary-bg px-3 shadow-sm">
+          <div className="flex h-11 w-64 items-center rounded-full border border-black/10 bg-white px-3 shadow-sm">
             <Search size={16} className="text-muted" />
             <input
               placeholder="Search products"
               className="w-full bg-transparent px-2 text-[15px] text-text outline-none placeholder:text-muted"
             />
           </div>
-          <Link href="/cart" className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
+          <button onClick={() => setCartOpen(true)} className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
             <ShoppingCart size={20} />
-            <span className="absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[11px] font-bold text-black">
-              2
+            <span className={`absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[11px] font-bold text-black ${bump ? "pulse-once" : "cart-badge"}`}>
+              {cartCount}
             </span>
-          </Link>
+          </button>
         </div>
 
         <div className="ml-auto flex items-center gap-2 md:hidden">
-          <Link href="/cart" className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
+          <button onClick={() => setCartOpen(true)} className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
             <ShoppingCart size={20} />
-            <span className="absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[11px] font-bold text-black">
-              2
+            <span className={`absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[11px] font-bold text-black ${bump ? "pulse-once" : "cart-badge"}`}>
+              {cartCount}
             </span>
-          </Link>
+          </button>
           <button onClick={() => setOpen(true)} className="rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Open menu">
             <Menu size={20} />
           </button>
@@ -78,6 +94,27 @@ export function SiteHeader() {
             </Link>
           ))}
         </div>
+      </aside>
+
+      <div className={`fixed inset-0 z-[72] transition ${cartOpen ? "pointer-events-auto bg-black/35 opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setCartOpen(false)} />
+      <aside className={`slide-drawer fixed inset-y-0 right-0 z-[73] w-80 border-l border-black/10 bg-white p-5 shadow-md ${cartOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}>
+        <div className="mb-5 flex items-center justify-between">
+          <p className="text-lg font-bold text-text">Tu carrito</p>
+          <button onClick={() => setCartOpen(false)} className="rounded-xl p-2 hover:bg-secondary-bg" aria-label="Close cart">
+            <X size={18} />
+          </button>
+        </div>
+        <div className="space-y-3">
+          {products.slice(0, 2).map((item) => (
+            <div key={item.id} className="rounded-xl border border-black/10 p-3">
+              <p className="truncate text-[15px] font-semibold">{item.name}</p>
+              <p className="text-[14px] text-muted">EUR {item.price.toFixed(2)}</p>
+            </div>
+          ))}
+        </div>
+        <Link onClick={() => setCartOpen(false)} href="/cart" className="btn-hover mt-5 block rounded-xl bg-primary px-4 py-3 text-center text-[15px] font-semibold text-white cta-glow">
+          Ver carrito
+        </Link>
       </aside>
     </header>
   );

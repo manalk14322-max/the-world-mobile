@@ -7,8 +7,8 @@ import { SiteFooter } from "@/components/site-footer";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "The world mobile | Mobile Store",
-  description: "Premium mobile phone store with fast checkout and modern shopping experience."
+  title: "The world mobile | Tienda premium",
+  description: "Tienda premium de smartphones para Espana con envio rapido y checkout seguro."
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`${inter.className} bg-background text-text antialiased`}>
         <SiteHeader />
         <main>{children}</main>

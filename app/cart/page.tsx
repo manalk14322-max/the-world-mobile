@@ -21,9 +21,9 @@ export default function CartPage() {
     () => cartItems.reduce((sum, item) => sum + item.price * qtyMap[item.id], 0),
     [cartItems, qtyMap]
   );
-  const shipping = cartItems.length ? 14.9 : 0;
-  const tax = subtotal * 0.07;
-  const discount = promoApplied ? subtotal * 0.05 : 0;
+  const shipping = cartItems.length ? 0 : 0;
+  const tax = subtotal * 0.06;
+  const discount = promoApplied ? subtotal * 0.08 : 0;
   const total = subtotal + shipping + tax - discount;
 
   const updateQty = (id: string, qty: number) =>
@@ -42,10 +42,10 @@ export default function CartPage() {
         <div className="container">
           <div className="mx-auto max-w-2xl rounded-xl border border-black/10 bg-white p-10 text-center shadow-sm">
             <h1 className="text-3xl font-extrabold text-text">Your cart is currently empty.</h1>
-            <p className="mt-3 text-[16px] text-muted">Looks like you have not added any products yet.</p>
+            <p className="mt-3 text-[16px] text-muted">Anade productos premium para empezar tu compra.</p>
             <Link
               href="/#top-products"
-              className="pressable mt-6 inline-block rounded-xl bg-accent px-6 py-3 text-[16px] font-semibold text-white shadow-sm transition hover:opacity-90"
+              className="btn-hover mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-[16px] font-semibold text-white shadow-sm"
             >
               Continue Shopping
             </Link>
@@ -56,10 +56,10 @@ export default function CartPage() {
   }
 
   return (
-    <section className="section bg-white">
+    <section className="section bg-background">
       <div className="container grid gap-8 lg:grid-cols-[1fr_390px]">
         <div className="space-y-5">
-          <h1 className="text-4xl font-extrabold text-text">Your Cart</h1>
+          <h1 className="text-4xl font-extrabold text-text">Carrito</h1>
           {cartItems.map((item) => (
             <article key={item.id} className="grid gap-4 rounded-xl border border-black/10 bg-white p-4 shadow-sm sm:grid-cols-[120px_1fr] sm:p-5">
               <Image src={item.images[0]} alt={item.name} width={240} height={260} className="h-28 w-full rounded-xl object-cover sm:h-32" />
@@ -67,7 +67,7 @@ export default function CartPage() {
                 <div>
                   <p className="text-xl font-bold text-text">{item.name}</p>
                   <p className="mt-1 text-[14px] text-muted">
-                    Color: {item.colors[0]} | Size: {item.sizes[0]}
+                    Color: {item.colors[0]} | {item.sizes[0]}
                   </p>
                   <p className="mt-1 text-[16px] font-semibold text-text">EUR {item.price.toFixed(2)}</p>
                 </div>
@@ -76,7 +76,7 @@ export default function CartPage() {
                   <div className="inline-flex items-center rounded-xl border border-black/10">
                     <button
                       onClick={() => updateQty(item.id, qtyMap[item.id] - 1)}
-                      className="h-10 w-10 text-lg font-bold text-text transition hover:bg-secondary-bg sm:h-11 sm:w-11"
+                      className="qty-bounce h-10 w-10 text-lg font-bold text-text transition hover:bg-secondary-bg sm:h-11 sm:w-11"
                       aria-label="Decrease quantity"
                     >
                       -
@@ -84,7 +84,7 @@ export default function CartPage() {
                     <span className="min-w-10 text-center text-[16px] font-semibold">{qtyMap[item.id]}</span>
                     <button
                       onClick={() => updateQty(item.id, qtyMap[item.id] + 1)}
-                      className="h-10 w-10 text-lg font-bold text-text transition hover:bg-secondary-bg sm:h-11 sm:w-11"
+                      className="qty-bounce h-10 w-10 text-lg font-bold text-text transition hover:bg-secondary-bg sm:h-11 sm:w-11"
                       aria-label="Increase quantity"
                     >
                       +
@@ -92,7 +92,7 @@ export default function CartPage() {
                   </div>
 
                   <button onClick={() => removeItem(item.id)} className="text-[14px] font-semibold text-red-600">
-                    Remove
+                    Eliminar
                   </button>
                 </div>
                 <p className="text-[15px] font-semibold text-text">
@@ -104,23 +104,23 @@ export default function CartPage() {
         </div>
 
         <aside className="h-fit rounded-xl border border-black/10 bg-white p-6 shadow-md lg:sticky lg:top-24">
-          <h2 className="text-2xl font-bold text-text">Order Summary</h2>
+          <h2 className="text-2xl font-bold text-text">Resumen del pedido</h2>
           <div className="mt-5 space-y-3 text-[16px]">
             <div className="flex justify-between">
               <span>Subtotal</span>
               <span>EUR {subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
-              <span>Shipping</span>
-              <span>EUR {shipping.toFixed(2)}</span>
+              <span>Envio</span>
+              <span>Gratis</span>
             </div>
             <div className="flex justify-between">
-              <span>Tax</span>
+              <span>IVA</span>
               <span>EUR {tax.toFixed(2)}</span>
             </div>
             {promoApplied && (
               <div className="flex justify-between text-accent">
-                <span>Promo Discount</span>
+                <span>Descuento</span>
                 <span>- EUR {discount.toFixed(2)}</span>
               </div>
             )}
@@ -134,28 +134,29 @@ export default function CartPage() {
             <input
               value={promo}
               onChange={(e) => setPromo(e.target.value)}
-              placeholder="Promo code"
+              placeholder="Codigo promo"
               className="h-11 flex-1 rounded-xl border border-black/10 px-3 text-[15px] outline-none focus:border-accent"
             />
             <button
               onClick={() => setPromoApplied(Boolean(promo.trim()))}
-              className="rounded-xl border border-black/10 px-4 text-[14px] font-semibold transition hover:bg-secondary-bg"
+              className="btn-hover rounded-xl border border-black/10 px-4 text-[14px] font-semibold transition hover:bg-secondary-bg"
             >
-              Apply
+              Aplicar
             </button>
           </div>
 
           <Link
             href="/checkout"
-            className="pressable mt-6 block rounded-xl bg-accent px-5 py-3.5 text-center text-[16px] font-semibold text-white shadow-sm transition hover:opacity-90"
+            className="btn-hover mt-6 block rounded-xl bg-primary px-5 py-3.5 text-center text-[16px] font-semibold text-white shadow-sm"
           >
-            Proceed to Secure Checkout
+            Finalizar compra
           </Link>
+          <p className="mt-3 text-center text-[13px] font-semibold text-text">Stock limitado - alta demanda</p>
 
           <div className="mt-5 rounded-xl border border-black/10 bg-secondary-bg p-4 text-[14px] text-muted">
             <div className="flex items-center gap-2 font-semibold text-text">
               <ShieldCheck size={16} className="text-accent" />
-              Secure Payment
+              Pago seguro
             </div>
             <div className="mt-3 flex flex-wrap gap-2">
               <span className="rounded-md border border-black/10 bg-white px-2 py-1 text-[12px] font-semibold text-text">VISA</span>
@@ -164,7 +165,7 @@ export default function CartPage() {
             </div>
             <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[12px] font-semibold text-text">
               <CreditCard size={14} className="text-accent" />
-              30-Day Return Badge
+              Devolucion 30 dias
             </div>
           </div>
         </aside>
@@ -175,8 +176,8 @@ export default function CartPage() {
           <span className="text-muted">Total</span>
           <span className="text-lg font-bold text-text">EUR {total.toFixed(2)}</span>
         </div>
-        <Link href="/checkout" className="block rounded-xl bg-accent px-5 py-3 text-center text-[16px] font-semibold text-white shadow-sm">
-          Proceed to Secure Checkout
+        <Link href="/checkout" className="block rounded-xl bg-primary px-5 py-3 text-center text-[16px] font-semibold text-white shadow-sm">
+          Finalizar compra
         </Link>
       </div>
     </section>

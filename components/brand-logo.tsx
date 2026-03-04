@@ -22,7 +22,7 @@ export function BrandLogo({ light = false, compact = false, shortOnMobile = fals
         </p>
         {shortOnMobile ? (
           <>
-            <p className={`${compact ? "text-base" : "text-lg"} font-extrabold tracking-tight sm:hidden`}>TWM</p>
+            <p className={`${compact ? "text-base" : "text-[1.05rem]"} font-extrabold leading-tight tracking-tight sm:hidden`}>The world mobile</p>
             <p className={`${compact ? "hidden sm:block sm:text-lg" : "hidden sm:block sm:text-xl md:text-2xl"} font-extrabold tracking-tight`}>
               The world mobile
             </p>

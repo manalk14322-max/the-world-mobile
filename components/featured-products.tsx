@@ -24,15 +24,15 @@ export function FeaturedProducts() {
                   height={760}
                   quality={80}
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                  className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
+                  className="h-[21rem] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
-                <Link href={`/product/${product.id}`} className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-xl bg-accent px-4 py-2 text-[14px] font-semibold text-white opacity-0 transition duration-300 group-hover:opacity-100">
-                  Add to Cart
+                <Link href={`/product/${product.id}`} className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-xl bg-primary px-4 py-2 text-[14px] font-semibold text-white opacity-0 transition duration-300 group-hover:opacity-100">
+                  Anadir al carrito
                 </Link>
               </div>
               <div className="p-4">
                 <h3 className="text-xl font-bold text-text">{product.name}</h3>
-                <p className="mt-1 text-[20px] font-extrabold text-accent">EUR {product.price}</p>
+                <p className="mt-1 text-[22px] font-extrabold text-text">EUR {product.price}</p>
                 <div className="mt-2 flex items-center gap-1 text-gold">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} size={14} fill={i < Math.round(product.rating) ? "currentColor" : "none"} />
