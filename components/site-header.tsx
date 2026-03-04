@@ -80,12 +80,12 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-white">
-      <div className="hidden border-b border-black/10 bg-[#F7F7F7] md:block">
+      <div className="hidden border-b border-black/10 bg-[#F4F7FF] md:block">
         <div className="container flex h-9 items-center justify-between text-[12px] text-muted">
           <p>{language === "es" ? "Entrega 24-48h en toda Espana" : "24-48h delivery across Spain"}</p>
           <div className="inline-flex items-center rounded-full border border-black/10 bg-white p-1">
-            <button onClick={() => setLanguage("es")} className={`rounded-full px-3 py-1 font-semibold ${language === "es" ? "bg-[#F57224] text-white" : "text-muted"}`}>Spanish</button>
-            <button onClick={() => setLanguage("en")} className={`rounded-full px-3 py-1 font-semibold ${language === "en" ? "bg-[#F57224] text-white" : "text-muted"}`}>English</button>
+            <button onClick={() => setLanguage("es")} className={`rounded-full px-3 py-1 font-semibold ${language === "es" ? "bg-[#2E63D7] text-white" : "text-[#475569]"}`}>Spanish</button>
+            <button onClick={() => setLanguage("en")} className={`rounded-full px-3 py-1 font-semibold ${language === "en" ? "bg-[#2E63D7] text-white" : "text-[#475569]"}`}>English</button>
           </div>
         </div>
       </div>
@@ -103,13 +103,13 @@ export function SiteHeader() {
             placeholder={language === "es" ? "Buscar productos" : "Search products"}
             className="h-full w-full bg-transparent px-4 text-[15px] text-text outline-none placeholder:text-muted"
           />
-          <button className="inline-flex h-11 w-12 items-center justify-center bg-[#F57224] text-white">
+          <button className="inline-flex h-11 w-12 items-center justify-center bg-[#2E63D7] text-white">
             <Search size={17} />
           </button>
         </div>
 
         <div className="ml-auto flex items-center gap-2">
-          <button onClick={() => setLanguage(language === "es" ? "en" : "es")} className="rounded-xl border border-black/10 px-2.5 py-1.5 text-[12px] font-semibold text-[#F57224] md:hidden">
+          <button onClick={() => setLanguage(language === "es" ? "en" : "es")} className="rounded-xl border border-black/10 px-2.5 py-1.5 text-[12px] font-semibold text-[#2E63D7] md:hidden">
             {language === "es" ? "ES" : "EN"}
           </button>
           <button className="hidden rounded-full border border-black/10 p-2.5 text-text md:inline-flex">
@@ -117,7 +117,7 @@ export function SiteHeader() {
           </button>
           <Link href="/cart" className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
             <ShoppingCart size={20} />
-            <span className="absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#F57224] px-1 text-[11px] font-bold text-white">2</span>
+            <span className="absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#2E63D7] px-1 text-[11px] font-bold text-white">2</span>
           </Link>
         </div>
       </div>
