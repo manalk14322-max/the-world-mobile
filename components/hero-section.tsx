@@ -65,9 +65,7 @@ const staticCopy = {
     badge1: "Entrega 24-48h en Espana",
     badge2: "Pago seguro SSL",
     badge3: "Garantia oficial europea",
-    stat1: "2,000+ clientes felices",
-    stat2: "Entrega media 24h",
-    stat3: "4.9/5 valoracion real"
+    trust: "Mas de 2,000 clientes satisfechos en Espana"
   },
   en: {
     primary: "Shop Now",
@@ -75,9 +73,7 @@ const staticCopy = {
     badge1: "24-48h delivery in Spain",
     badge2: "Secure SSL checkout",
     badge3: "Official EU warranty",
-    stat1: "2,000+ happy customers",
-    stat2: "24h average dispatch",
-    stat3: "4.9/5 verified rating"
+    trust: "Trusted by 2,000+ satisfied customers in Spain"
   }
 } as const;
 
@@ -110,13 +106,13 @@ export function HeroSection() {
           height={980}
           priority
           quality={82}
-          className="h-[520px] w-full object-cover transition duration-700"
+          className="h-[560px] w-full object-cover transition duration-700"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A8A]/90 via-[#1E3A8A]/68 to-[#1E3A8A]/36" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F2B6E]/86 via-[#1E3A8A]/56 to-[#1E3A8A]/24" />
 
-        <div className="absolute left-4 right-4 top-4 z-20 hidden items-center gap-6 rounded-xl border border-white/25 bg-[#F0F5FF]/90 px-4 py-3 backdrop-blur lg:flex">
-          <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-4 py-2 text-[14px] font-semibold text-white">
+        <div className="absolute left-4 right-4 top-4 z-20 hidden items-center gap-6 rounded-xl border border-white/20 bg-white/86 px-4 py-2.5 backdrop-blur lg:flex">
+          <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-3.5 py-1.5 text-[13px] font-semibold text-white">
             <Menu size={16} />
             {language === "es" ? "All Categories" : "All Categories"}
           </button>
@@ -147,18 +143,19 @@ export function HeroSection() {
           <ChevronRight size={20} />
         </button>
 
-        <div className="absolute inset-0 flex items-center pt-14 lg:pt-10">
-          <div className="max-w-2xl px-6 text-white sm:px-10">
+        <div className="absolute inset-0 flex items-center pt-16 lg:pt-10">
+          <div className="max-w-2xl px-6 sm:px-10">
+            <div className="rounded-2xl border border-white/20 bg-black/20 p-5 backdrop-blur-sm sm:p-7">
             <p className="mb-3 inline-flex rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/95">
               {language === "es" ? "Tienda premium en Espana" : "Premium store for Spain"}
             </p>
-            <h1 className="text-3xl font-black leading-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-black leading-[1.05] text-white sm:text-4xl lg:text-5xl">
               {language === "es" ? slide.esTitle : slide.enTitle}
             </h1>
-            <p className="mt-4 max-w-2xl text-[17px] text-white/90">
+            <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-white/90">
               {language === "es" ? slide.esSubtitle : slide.enSubtitle}
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/#top-products" className="btn-hover cta-glow rounded-xl bg-primary px-8 py-4 text-[17px] font-semibold text-white">
                 {text.primary}
               </Link>
@@ -166,15 +163,14 @@ export function HeroSection() {
                 {text.secondary}
               </Link>
             </div>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge1}</span>
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge2}</span>
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge3}</span>
             </div>
-            <div className="mt-5 grid max-w-xl gap-2 text-[13px] sm:grid-cols-3">
-              <div className="rounded-lg border border-white/30 bg-white/10 px-3 py-2 font-semibold">{text.stat1}</div>
-              <div className="rounded-lg border border-white/30 bg-white/10 px-3 py-2 font-semibold">{text.stat2}</div>
-              <div className="rounded-lg border border-white/30 bg-white/10 px-3 py-2 font-semibold">{text.stat3}</div>
+            <div className="mt-4 rounded-lg border border-white/25 bg-white/10 px-3 py-2 text-[13px] font-semibold text-white/95">
+              {text.trust}
+            </div>
             </div>
           </div>
         </div>
