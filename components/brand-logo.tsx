@@ -10,8 +10,8 @@ export function BrandLogo({ light = false, compact = false, shortOnMobile = fals
   return (
     <div className={`inline-flex items-center gap-2.5 ${compact ? "" : "gap-3"}`}>
       <span
-        className={`inline-flex h-9 w-9 items-center justify-center rounded-xl border ${
-          light ? "border-white/35 bg-white/15" : "border-black/10 bg-accent text-white"
+        className={`inline-flex h-9 w-9 items-center justify-center rounded-lg border ${
+          light ? "border-white/35 bg-white/15" : "border-black/10 bg-[#2E63D7] text-white"
         }`}
       >
         <Smartphone size={18} />
@@ -23,14 +23,14 @@ export function BrandLogo({ light = false, compact = false, shortOnMobile = fals
             <div className={`${compact ? "hidden sm:block" : "hidden sm:block"}`}>
               <p className={`text-[10px] font-semibold uppercase tracking-[0.2em] ${light ? "text-white/80" : "text-muted"}`}>Premium Store</p>
               <p className={`mt-0.5 text-[24px] font-serif italic font-bold tracking-tight ${light ? "text-white" : "text-text"}`}>the world</p>
-              <p className={`-mt-0.5 text-[18px] font-extrabold uppercase tracking-[0.08em] ${light ? "text-white/90" : "text-primary"}`}>mobile</p>
+              <p className={`-mt-0.5 text-[18px] font-extrabold uppercase tracking-[0.08em] ${light ? "text-white/90" : "text-[#2E63D7]"}`}>mobile</p>
             </div>
           </>
         ) : (
           <div>
             <p className={`text-[10px] font-semibold uppercase tracking-[0.2em] ${light ? "text-white/80" : "text-muted"}`}>Premium Store</p>
             <p className={`${compact ? "text-[20px]" : "text-[24px] md:text-[27px]"} mt-0.5 font-serif italic font-bold tracking-tight ${light ? "text-white" : "text-text"}`}>the world</p>
-            <p className={`${compact ? "text-[15px]" : "text-[17px]"} -mt-0.5 font-extrabold uppercase tracking-[0.08em] ${light ? "text-white/90" : "text-primary"}`}>mobile</p>
+            <p className={`${compact ? "text-[15px]" : "text-[17px]"} -mt-0.5 font-extrabold uppercase tracking-[0.08em] ${light ? "text-white/90" : "text-[#2E63D7]"}`}>mobile</p>
           </div>
         )}
       </div>
