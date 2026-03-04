@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   Cable,
-  ChevronRight,
   Headphones,
   Menu,
   Monitor,
@@ -17,26 +16,9 @@ import {
   User,
   X
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { BrandLogo } from "./brand-logo";
 import { useLanguage } from "./language-context";
-
-const navByLanguage = {
-  es: [
-    { label: "Inicio", href: "/" },
-    { label: "Store", href: "/#top-products" },
-    { label: "Novedades", href: "/#top-products" },
-    { label: "Ofertas", href: "/#categories" },
-    { label: "Contacto", href: "/#newsletter" }
-  ],
-  en: [
-    { label: "Home", href: "/" },
-    { label: "Store", href: "/#top-products" },
-    { label: "New Arrivals", href: "/#top-products" },
-    { label: "Offers", href: "/#categories" },
-    { label: "Contact", href: "/#newsletter" }
-  ]
-} as const;
 
 const categoriesByLanguage = {
   es: [
@@ -63,20 +45,8 @@ const categoriesByLanguage = {
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [catOpen, setCatOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
-  const nav = navByLanguage[language];
   const categories = categoriesByLanguage[language];
-  const catRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const onOutside = (event: MouseEvent) => {
-      if (!catRef.current) return;
-      if (!catRef.current.contains(event.target as Node)) setCatOpen(false);
-    };
-    document.addEventListener("mousedown", onOutside);
-    return () => document.removeEventListener("mousedown", onOutside);
-  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-white">
@@ -122,33 +92,6 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="hidden border-t border-black/10 bg-[#EEF3FF] lg:block">
-        <div className="container relative flex h-14 items-center gap-8" ref={catRef}>
-          <button onClick={() => setCatOpen((v) => !v)} className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-4 py-2 text-[15px] font-semibold text-white">
-            <Menu size={17} />
-            {language === "es" ? "All Categories" : "All Categories"}
-          </button>
-
-          {nav.map((item) => (
-            <Link key={item.label} href={item.href} className="text-[15px] font-semibold text-text transition hover:text-[#2E63D7]">
-              {item.label}
-            </Link>
-          ))}
-
-          {catOpen && (
-            <div className="absolute left-0 top-[58px] z-40 w-[320px] rounded-xl border border-black/10 bg-white p-2 shadow-md">
-              {categories.map((item) => (
-                <button key={item.label} className="group flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left hover:bg-[#F7F9FF]">
-                  <item.icon size={17} className="text-text" />
-                  <span className="text-[14px] font-semibold text-text">{item.label}</span>
-                  <ChevronRight size={15} className="ml-auto text-muted group-hover:text-[#2E63D7]" />
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-
       <div className={`fixed inset-0 z-[60] transition ${mobileOpen ? "pointer-events-auto bg-black/35 opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setMobileOpen(false)} />
       <aside className={`fixed inset-y-0 left-0 z-[70] w-[290px] border-r border-black/10 bg-white p-4 shadow-md transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="mb-4 flex items-center justify-between">
@@ -166,7 +109,6 @@ export function SiteHeader() {
             <button key={item.label} className="group flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left hover:bg-[#F7F9FF]">
               <item.icon size={17} className="text-text" />
               <span className="text-[14px] font-semibold text-text">{item.label}</span>
-              <ChevronRight size={15} className="ml-auto text-muted group-hover:text-[#2E63D7]" />
             </button>
           ))}
         </div>

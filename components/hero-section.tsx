@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Menu, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLanguage } from "./language-context";
 
@@ -81,11 +81,17 @@ const staticCopy = {
   }
 } as const;
 
+const heroNav = {
+  es: ["Store", "Nuestro Contacto", "Novedades", "Oferta"],
+  en: ["Store", "Our Contact", "New Arrivals", "Offers"]
+} as const;
+
 export function HeroSection() {
   const [index, setIndex] = useState(0);
   const { language } = useLanguage();
   const slide = slides[index];
   const text = staticCopy[language];
+  const nav = heroNav[language];
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -109,6 +115,23 @@ export function HeroSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A8A]/90 via-[#1E3A8A]/68 to-[#1E3A8A]/36" />
 
+        <div className="absolute left-4 right-4 top-4 z-20 hidden items-center gap-6 rounded-xl border border-white/25 bg-[#F0F5FF]/90 px-4 py-3 backdrop-blur lg:flex">
+          <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-4 py-2 text-[14px] font-semibold text-white">
+            <Menu size={16} />
+            {language === "es" ? "All Categories" : "All Categories"}
+          </button>
+          <div className="flex items-center gap-7">
+            {nav.map((item) => (
+              <Link key={item} href="/#top-products" className="text-[14px] font-semibold text-[#1E293B] transition hover:text-[#2E63D7]">
+                {item}
+              </Link>
+            ))}
+          </div>
+          <button className="ml-auto rounded-full border border-black/10 bg-white p-2 text-[#1E293B]">
+            <User size={16} />
+          </button>
+        </div>
+
         <button
           onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
           className="btn-hover absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/40 bg-white/15 p-2 text-white backdrop-blur"
@@ -124,7 +147,7 @@ export function HeroSection() {
           <ChevronRight size={20} />
         </button>
 
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 flex items-center pt-14 lg:pt-10">
           <div className="max-w-2xl px-6 text-white sm:px-10">
             <p className="mb-3 inline-flex rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/95">
               {language === "es" ? "Tienda premium en Espana" : "Premium store for Spain"}
