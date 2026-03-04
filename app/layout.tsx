@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { LanguageProvider } from "@/components/language-context";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.className} bg-background text-text antialiased`}>
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <LanguageProvider>
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </LanguageProvider>
       </body>
     </html>
   );

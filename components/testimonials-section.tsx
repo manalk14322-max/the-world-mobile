@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { testimonials } from "@/data/mock-data";
+import { useLanguage } from "./language-context";
 
 export function TestimonialsSection() {
   const [index, setIndex] = useState(0);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -19,7 +21,7 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="section py-8 sm:py-12">
       <div className="container">
-        <h2 className="mb-6 text-2xl font-extrabold text-text sm:text-3xl">Customer Testimonials</h2>
+        <h2 className="mb-6 text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Resenas de clientes" : "Customer Testimonials"}</h2>
         <article className="rounded-xl border border-black/10 bg-white p-6 shadow-md sm:p-8">
           <Quote size={28} className="text-accent" />
           <p className="mt-4 text-[19px] font-medium leading-relaxed text-text">&quot;{current.text}&quot;</p>
