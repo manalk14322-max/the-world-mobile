@@ -45,41 +45,38 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur">
+      <div className="hidden border-b border-black/10 bg-secondary-bg md:block">
+        <div className="container flex h-10 items-center justify-between text-[13px]">
+          <div className="flex items-center gap-6 text-text">
+            <p className="font-semibold">{language === "es" ? "ENVIO GRATIS +100EUR" : "FREE SHIPPING +100EUR"}</p>
+            <p className="text-muted">{language === "es" ? "Pedido minimo 50EUR + IVA" : "Minimum order 50EUR + VAT"}</p>
+            <p className="text-muted">{language === "es" ? "Entrega urgente 24-48h" : "Express delivery 24-48h"}</p>
+          </div>
+          <div className="inline-flex items-center rounded-full border border-black/10 bg-white p-1">
+            <button onClick={() => setLanguage("es")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "es" ? "bg-primary text-white shadow-sm" : "text-muted"}`}>Spanish</button>
+            <button onClick={() => setLanguage("en")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "en" ? "bg-primary text-white shadow-sm" : "text-muted"}`}>English</button>
+          </div>
+        </div>
+      </div>
+
       <div className="container flex h-20 items-center gap-3">
+        <button onClick={() => setOpen(true)} className="rounded-xl border border-black/10 p-2.5 transition hover:bg-secondary-bg lg:hidden" aria-label="Open menu">
+          <Menu size={20} />
+        </button>
         <Link href="/" className="shrink-0">
           <BrandLogo shortOnMobile />
         </Link>
 
-        <nav className="hidden items-center gap-8 xl:gap-10 lg:flex">
-          {nav.map((item) => (
-            <Link key={item.label} href={item.href} className="text-[16px] font-medium text-text transition hover:text-accent">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="ml-auto hidden items-center gap-2 md:flex">
-          <div className="mr-1 inline-flex items-center rounded-full border border-black/10 bg-secondary-bg p-1">
-            <button onClick={() => setLanguage("es")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "es" ? "bg-white text-primary shadow-sm" : "text-muted"}`}>Spanish</button>
-            <button onClick={() => setLanguage("en")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "en" ? "bg-white text-primary shadow-sm" : "text-muted"}`}>English</button>
-          </div>
-          <div className="flex h-11 w-64 items-center rounded-full border border-black/10 bg-white px-3 shadow-sm">
-            <Search size={16} className="text-muted" />
-            <input
-              placeholder={language === "es" ? "Buscar productos" : "Search products"}
-              className="w-full bg-transparent px-2 text-[15px] text-text outline-none placeholder:text-muted"
-            />
-          </div>
-          <button onClick={() => setCartOpen(true)} className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
-            <ShoppingCart size={20} />
-            <span className={`absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[11px] font-bold text-white ${bump ? "pulse-once" : "cart-badge"}`}>
-              {cartCount}
-            </span>
-          </button>
+        <div className="mx-1 hidden h-11 min-w-[280px] flex-1 items-center rounded-full border border-black/10 bg-white px-3 shadow-sm md:flex lg:min-w-[380px]">
+          <Search size={16} className="text-muted" />
+          <input
+            placeholder={language === "es" ? "Buscar productos" : "Search products"}
+            className="w-full bg-transparent px-2 text-[15px] text-text outline-none placeholder:text-muted"
+          />
         </div>
 
-        <div className="ml-auto flex items-center gap-2 md:hidden">
-          <button onClick={() => setLanguage(language === "es" ? "en" : "es")} className="rounded-xl border border-black/10 px-2.5 py-1.5 text-[12px] font-semibold text-primary">
+        <div className="ml-auto flex items-center gap-2">
+          <button onClick={() => setLanguage(language === "es" ? "en" : "es")} className="rounded-xl border border-black/10 px-2.5 py-1.5 text-[12px] font-semibold text-primary md:hidden">
             {language === "es" ? "ES" : "EN"}
           </button>
           <button onClick={() => setCartOpen(true)} className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
@@ -88,16 +85,23 @@ export function SiteHeader() {
               {cartCount}
             </span>
           </button>
-          <button onClick={() => setOpen(true)} className="rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Open menu">
-            <Menu size={20} />
-          </button>
         </div>
+      </div>
+
+      <div className="hidden border-t border-black/10 bg-secondary-bg lg:block">
+        <nav className="container flex h-14 items-center gap-8">
+          {nav.map((item) => (
+            <Link key={item.label} href={item.href} className="text-[15px] font-semibold text-text transition hover:text-accent">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
 
       <div className={`fixed inset-0 z-[60] transition ${open ? "pointer-events-auto bg-black/35 opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setOpen(false)} />
       <aside className={`fixed inset-y-0 right-0 z-[70] w-80 border-l border-black/10 bg-white p-6 shadow-md transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}>
         <div className="mb-6 flex items-center justify-between">
-          <p className="text-lg font-bold">{language === "es" ? "Menu" : "Menu"}</p>
+          <p className="text-lg font-bold">Menu</p>
           <button onClick={() => setOpen(false)} className="rounded-xl p-2 hover:bg-secondary-bg" aria-label="Close menu">
             <X size={18} />
           </button>
@@ -105,6 +109,10 @@ export function SiteHeader() {
         <div className="mb-5 flex h-11 items-center rounded-xl border border-black/10 bg-secondary-bg px-3">
           <Search size={16} className="text-muted" />
           <input placeholder={language === "es" ? "Buscar productos" : "Search products"} className="w-full bg-transparent px-2 text-[15px] outline-none placeholder:text-muted" />
+        </div>
+        <div className="mb-4 inline-flex items-center rounded-full border border-black/10 bg-secondary-bg p-1">
+          <button onClick={() => setLanguage("es")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "es" ? "bg-white text-primary shadow-sm" : "text-muted"}`}>Spanish</button>
+          <button onClick={() => setLanguage("en")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "en" ? "bg-white text-primary shadow-sm" : "text-muted"}`}>English</button>
         </div>
         <div className="flex flex-col gap-2">
           {nav.map((item) => (

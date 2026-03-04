@@ -7,62 +7,101 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "./language-context";
 
 const slides = [
-  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1583573636246-18cb2246697f?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1900&q=80"
+  {
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=80",
+    esTitle: "Tecnologia premium para un estilo profesional",
+    enTitle: "Premium technology for a professional lifestyle",
+    esSubtitle: "Moviles y accesorios originales con entrega rapida en toda Espana.",
+    enSubtitle: "Original smartphones and accessories with fast delivery across Spain."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1583573636246-18cb2246697f?auto=format&fit=crop&w=1900&q=80",
+    esTitle: "Nuevos lanzamientos, experiencia de compra superior",
+    enTitle: "New launches, superior shopping experience",
+    esSubtitle: "Descubre los modelos mas buscados con garantia europea.",
+    enSubtitle: "Explore the most wanted models with official European warranty."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1900&q=80",
+    esTitle: "Smartphones de alta gama al mejor valor",
+    enTitle: "High-end smartphones at the best value",
+    esSubtitle: "Precios transparentes, pago seguro y soporte experto.",
+    enSubtitle: "Transparent pricing, secure checkout, and expert support."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=1900&q=80",
+    esTitle: "Compra elegante, envio rapido, confianza total",
+    enTitle: "Elegant shopping, fast shipping, complete trust",
+    esSubtitle: "Todo lo que necesitas para comprar con tranquilidad.",
+    enSubtitle: "Everything you need for a confident purchase journey."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1900&q=80",
+    esTitle: "Accesorios esenciales para potenciar tu movil",
+    enTitle: "Essential accessories to elevate your phone",
+    esSubtitle: "Calidad premium en cada detalle, pensada para Europa.",
+    enSubtitle: "Premium quality in every detail, tailored for Europe."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=1900&q=80",
+    esTitle: "Rendimiento, diseno y seguridad en un solo lugar",
+    enTitle: "Performance, design and security in one place",
+    esSubtitle: "Tu tienda moderna para tecnologia movil en Espana.",
+    enSubtitle: "Your modern destination for mobile technology in Spain."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1900&q=80",
+    esTitle: "The world mobile: calidad que inspira confianza",
+    enTitle: "The world mobile: quality that builds trust",
+    esSubtitle: "Mas de 2,000 clientes satisfechos ya compran con nosotros.",
+    enSubtitle: "Trusted by 2,000+ satisfied customers across Spain."
+  }
 ];
 
-const copy = {
+const staticCopy = {
   es: {
-    title: "Descubre Accesorios Premium para Movil",
-    subtitle: "Calidad profesional, entrega rapida y compra segura en toda Espana.",
     primary: "Comprar ahora",
     secondary: "Ver colecciones",
-    badge1: "Envio rapido 24-48h",
+    badge1: "Entrega 24-48h en Espana",
     badge2: "Pago seguro SSL",
-    socialProof: "Mas de 2,000 clientes satisfechos en Espana"
+    badge3: "Garantia oficial europea"
   },
   en: {
-    title: "Discover Premium Mobile Essentials",
-    subtitle: "Professional quality, fast delivery, and secure checkout across Spain.",
     primary: "Shop Now",
     secondary: "View Collections",
-    badge1: "Fast 24-48h Delivery",
-    badge2: "Secure SSL Payments",
-    socialProof: "Trusted by 2,000+ satisfied customers in Spain"
+    badge1: "24-48h delivery in Spain",
+    badge2: "Secure SSL checkout",
+    badge3: "Official EU warranty"
   }
 } as const;
 
 export function HeroSection() {
   const [index, setIndex] = useState(0);
   const { language } = useLanguage();
-  const text = copy[language];
+  const slide = slides[index];
+  const text = staticCopy[language];
 
   useEffect(() => {
     const timer = window.setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 3500);
+    }, 4200);
     return () => window.clearInterval(timer);
   }, []);
 
   return (
     <section className="section pb-16 pt-8 sm:pt-10">
-      <div className="container relative overflow-hidden rounded-xl border border-black/10">
+      <div className="container relative overflow-hidden rounded-xl border border-black/10 shadow-md">
         <Image
-          src={slides[index]}
+          src={slide.image}
           alt="Premium mobile showcase"
           width={1900}
           height={980}
           priority
-          quality={80}
-          className="h-[620px] w-full object-cover transition duration-700"
+          quality={82}
+          className="h-[640px] w-full object-cover transition duration-700"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A8A]/88 via-[#1E3A8A]/64 to-[#1E3A8A]/38" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A8A]/90 via-[#1E3A8A]/68 to-[#1E3A8A]/36" />
 
         <button
           onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
@@ -79,10 +118,17 @@ export function HeroSection() {
           <ChevronRight size={20} />
         </button>
 
-        <div className="absolute inset-0 flex items-center pt-14 sm:pt-0">
+        <div className="absolute inset-0 flex items-center">
           <div className="max-w-3xl px-6 text-white sm:px-10">
-            <h1 className="text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">{text.title}</h1>
-            <p className="mt-5 max-w-2xl text-[18px] text-white/90">{text.subtitle}</p>
+            <p className="mb-3 inline-flex rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/95">
+              {language === "es" ? "Tienda premium en Espana" : "Premium store for Spain"}
+            </p>
+            <h1 className="text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">
+              {language === "es" ? slide.esTitle : slide.enTitle}
+            </h1>
+            <p className="mt-5 max-w-2xl text-[18px] text-white/90">
+              {language === "es" ? slide.esSubtitle : slide.enSubtitle}
+            </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="/#top-products" className="btn-hover cta-glow rounded-xl bg-primary px-8 py-4 text-[17px] font-semibold text-white">
                 {text.primary}
@@ -94,8 +140,8 @@ export function HeroSection() {
             <div className="mt-6 flex flex-wrap gap-2">
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge1}</span>
               <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge2}</span>
+              <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge3}</span>
             </div>
-            <p className="mt-4 text-[14px] text-white/80">{text.socialProof}</p>
           </div>
         </div>
 
