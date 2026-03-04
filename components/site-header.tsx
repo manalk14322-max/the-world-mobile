@@ -1,7 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, ShoppingCart, X } from "lucide-react";
+import {
+  Cable,
+  ChevronRight,
+  HardDrive,
+  Headphones,
+  Laptop,
+  Menu,
+  Monitor,
+  Package,
+  PlugZap,
+  Search,
+  Shield,
+  ShoppingCart,
+  Smartphone,
+  Tag,
+  X
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { BrandLogo } from "./brand-logo";
 import { products } from "@/data/mock-data";
@@ -24,6 +40,33 @@ const navByLanguage = {
   ]
 } as const;
 
+const categoriesByLanguage = {
+  es: [
+    { label: "MARCA", icon: Tag },
+    { label: "FUNDA", icon: Smartphone },
+    { label: "PROTECTORES PANTALLA", icon: Shield },
+    { label: "CARGADORES", icon: PlugZap },
+    { label: "CABLE", icon: Cable },
+    { label: "AUDIO", icon: Headphones },
+    { label: "SOPORTE", icon: Monitor },
+    { label: "INFORMATICA", icon: Laptop },
+    { label: "GADGETS", icon: Package },
+    { label: "TARJETA MEMORIAS", icon: HardDrive }
+  ],
+  en: [
+    { label: "BRAND", icon: Tag },
+    { label: "CASES", icon: Smartphone },
+    { label: "SCREEN PROTECTORS", icon: Shield },
+    { label: "CHARGERS", icon: PlugZap },
+    { label: "CABLES", icon: Cable },
+    { label: "AUDIO", icon: Headphones },
+    { label: "MOUNTS", icon: Monitor },
+    { label: "COMPUTING", icon: Laptop },
+    { label: "GADGETS", icon: Package },
+    { label: "MEMORY CARDS", icon: HardDrive }
+  ]
+} as const;
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -31,6 +74,7 @@ export function SiteHeader() {
   const [bump, setBump] = useState(false);
   const { language, setLanguage } = useLanguage();
   const nav = navByLanguage[language];
+  const categories = categoriesByLanguage[language];
 
   useEffect(() => {
     const onAdd = () => {
@@ -60,14 +104,16 @@ export function SiteHeader() {
       </div>
 
       <div className="container flex h-20 items-center gap-3">
-        <button onClick={() => setOpen(true)} className="rounded-xl border border-black/10 p-2.5 transition hover:bg-secondary-bg lg:hidden" aria-label="Open menu">
-          <Menu size={20} />
+        <button onClick={() => setOpen(true)} className="inline-flex items-center gap-2 rounded-full bg-[#2563EB] px-3 py-2 text-white shadow-sm transition hover:opacity-90" aria-label="Open categories">
+          <Menu size={18} />
+          <span className="hidden text-[15px] font-semibold sm:inline">{language === "es" ? "All Categories" : "All Categories"}</span>
         </button>
+
         <Link href="/" className="shrink-0">
           <BrandLogo shortOnMobile />
         </Link>
 
-        <div className="mx-1 hidden h-11 min-w-[280px] flex-1 items-center rounded-full border border-black/10 bg-white px-3 shadow-sm md:flex lg:min-w-[380px]">
+        <div className="mx-1 hidden h-11 min-w-[260px] flex-1 items-center rounded-full border border-black/10 bg-white px-3 shadow-sm md:flex lg:min-w-[380px]">
           <Search size={16} className="text-muted" />
           <input
             placeholder={language === "es" ? "Buscar productos" : "Search products"}
@@ -99,26 +145,24 @@ export function SiteHeader() {
       </div>
 
       <div className={`fixed inset-0 z-[60] transition ${open ? "pointer-events-auto bg-black/35 opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setOpen(false)} />
-      <aside className={`fixed inset-y-0 right-0 z-[70] w-80 border-l border-black/10 bg-white p-6 shadow-md transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}>
-        <div className="mb-6 flex items-center justify-between">
-          <p className="text-lg font-bold">Menu</p>
+      <aside className={`fixed inset-y-0 left-0 z-[70] w-[310px] border-r border-black/10 bg-white p-4 shadow-md transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="mb-4 flex items-center justify-between">
+          <button className="inline-flex items-center gap-2 rounded-full bg-[#2563EB] px-4 py-2 text-[15px] font-semibold text-white">
+            <Menu size={17} />
+            {language === "es" ? "All Categories" : "All Categories"}
+          </button>
           <button onClick={() => setOpen(false)} className="rounded-xl p-2 hover:bg-secondary-bg" aria-label="Close menu">
             <X size={18} />
           </button>
         </div>
-        <div className="mb-5 flex h-11 items-center rounded-xl border border-black/10 bg-secondary-bg px-3">
-          <Search size={16} className="text-muted" />
-          <input placeholder={language === "es" ? "Buscar productos" : "Search products"} className="w-full bg-transparent px-2 text-[15px] outline-none placeholder:text-muted" />
-        </div>
-        <div className="mb-4 inline-flex items-center rounded-full border border-black/10 bg-secondary-bg p-1">
-          <button onClick={() => setLanguage("es")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "es" ? "bg-white text-primary shadow-sm" : "text-muted"}`}>Spanish</button>
-          <button onClick={() => setLanguage("en")} className={`rounded-full px-3 py-1 text-[12px] font-semibold ${language === "en" ? "bg-white text-primary shadow-sm" : "text-muted"}`}>English</button>
-        </div>
-        <div className="flex flex-col gap-2">
-          {nav.map((item) => (
-            <Link key={item.label} href={item.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-2.5 text-[16px] font-medium hover:bg-secondary-bg">
-              {item.label}
-            </Link>
+
+        <div className="space-y-1.5">
+          {categories.map((item) => (
+            <button key={item.label} className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left transition hover:bg-secondary-bg">
+              <item.icon size={18} className="text-text" />
+              <span className="text-[15px] font-semibold text-text">{item.label}</span>
+              <ChevronRight size={15} className="ml-auto text-muted" />
+            </button>
           ))}
         </div>
       </aside>
