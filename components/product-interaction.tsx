@@ -31,7 +31,7 @@ export function ProductInteraction({ colors, sizes }: Props) {
             <button
               key={item}
               onClick={() => setColor(item)}
-              className={`rounded-xl border px-4 py-2 text-[15px] transition ${color === item ? "border-black bg-black text-white" : "border-black/10"}`}
+              className={`rounded-xl border px-4 py-2 text-[15px] transition ${color === item ? "border-primary bg-primary text-white" : "border-black/10"}`}
             >
               {item}
             </button>
@@ -46,7 +46,7 @@ export function ProductInteraction({ colors, sizes }: Props) {
             <button
               key={item}
               onClick={() => setSize(item)}
-              className={`rounded-xl border px-4 py-2 text-[15px] transition ${size === item ? "border-black bg-black text-white" : "border-black/10"}`}
+              className={`rounded-xl border px-4 py-2 text-[15px] transition ${size === item ? "border-primary bg-primary text-white" : "border-black/10"}`}
             >
               {item}
             </button>

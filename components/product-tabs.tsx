@@ -18,7 +18,7 @@ export function ProductTabs({ rating }: Props) {
           <button
             key={tab}
             onClick={() => setActive(tab)}
-            className={`rounded-xl px-3 py-2 text-[15px] transition ${active === tab ? "bg-black text-white" : "text-muted hover:bg-secondary-bg"}`}
+            className={`rounded-xl px-3 py-2 text-[15px] transition ${active === tab ? "bg-primary text-white" : "text-muted hover:bg-secondary-bg"}`}
           >
             {tab}
           </button>

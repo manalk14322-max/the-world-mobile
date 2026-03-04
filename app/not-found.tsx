@@ -10,7 +10,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="pressable mt-6 inline-block rounded-xl bg-black px-6 py-3 text-[16px] font-semibold text-white shadow-sm"
+          className="pressable mt-6 inline-block rounded-xl bg-primary px-6 py-3 text-[16px] font-semibold text-white shadow-sm"
         >
           Go Home
         </Link>

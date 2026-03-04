@@ -56,7 +56,7 @@ export function SiteHeader() {
           </div>
           <button onClick={() => setCartOpen(true)} className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
             <ShoppingCart size={20} />
-            <span className={`absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[11px] font-bold text-black ${bump ? "pulse-once" : "cart-badge"}`}>
+            <span className={`absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[11px] font-bold text-white ${bump ? "pulse-once" : "cart-badge"}`}>
               {cartCount}
             </span>
           </button>
@@ -65,7 +65,7 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center gap-2 md:hidden">
           <button onClick={() => setCartOpen(true)} className="relative rounded-xl p-2.5 transition hover:bg-secondary-bg" aria-label="Cart">
             <ShoppingCart size={20} />
-            <span className={`absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[11px] font-bold text-black ${bump ? "pulse-once" : "cart-badge"}`}>
+            <span className={`absolute -right-0.5 -top-0.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[11px] font-bold text-white ${bump ? "pulse-once" : "cart-badge"}`}>
               {cartCount}
             </span>
           </button>

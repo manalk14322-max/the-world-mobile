@@ -34,7 +34,7 @@ export function WhyChooseSection() {
             </p>
             <Link
               href="/#featured"
-              className="pressable mt-6 inline-flex items-center gap-2 rounded-xl bg-black px-5 py-3 text-[16px] font-semibold text-white shadow-sm transition hover:opacity-90"
+              className="pressable mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-[16px] font-semibold text-white shadow-sm transition hover:opacity-90"
             >
               Start Shopping
               <ArrowRight size={18} />

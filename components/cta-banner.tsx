@@ -4,7 +4,7 @@ export function CtaBanner() {
   return (
     <section className="section py-10 sm:py-16">
       <div className="container">
-        <div className="rounded-xl border border-black/10 bg-black p-6 text-white shadow-md sm:p-10">
+        <div className="rounded-xl border border-black/10 bg-primary p-6 text-white shadow-md sm:p-10">
           <p className="text-[14px] font-medium text-white/80">Ready for your next phone?</p>
           <h2 className="mt-2 max-w-3xl text-2xl font-extrabold leading-tight sm:text-4xl">
             Compare top models, check real prices, and order in minutes

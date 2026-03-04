@@ -15,7 +15,7 @@ export function HeroSection() {
           className="h-[600px] w-full object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#111111]/92 via-[#111111]/72 to-[#111111]/42" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A8A]/88 via-[#1E3A8A]/64 to-[#1E3A8A]/36" />
         <div className="absolute inset-0 flex items-center pt-14 sm:pt-0">
           <div className="max-w-3xl px-6 text-white sm:px-10">
             <h1 className="text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">
