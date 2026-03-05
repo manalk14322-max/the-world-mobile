@@ -7,10 +7,9 @@ import { useLanguage } from "./language-context";
 
 const images = [
   "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1583573636246-18cb2246697f?auto=format&fit=crop&w=1900&q=80",
   "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1900&q=80"
+  "https://images.unsplash.com/photo-1510552776732-01acc4b7ddc5?auto=format&fit=crop&w=1900&q=80",
+  "https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=crop&w=1900&q=80"
 ];
 
 const copy = {
@@ -68,7 +67,12 @@ export function HeroSection() {
             />
           ))}
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45))"
+            }}
+          />
 
           <div className="relative flex min-h-[620px] items-center">
             <div className="max-w-3xl px-6 py-12 text-white sm:px-10">
