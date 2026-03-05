@@ -43,7 +43,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <span className="rounded-full border border-black/10 bg-white px-3 py-1 font-semibold text-text">Devolucion gratuita en 30 dias</span>
           </div>
 
-          <ProductInteraction colors={product.colors} sizes={product.sizes} />
+          <ProductInteraction productId={product.id} colors={product.colors} sizes={product.sizes} />
 
           <ProductTabs rating={product.rating} />
         </div>

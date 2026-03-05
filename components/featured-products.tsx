@@ -5,23 +5,23 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import { products } from "@/data/mock-data";
 import { useFadeInOnScroll } from "@/lib/use-fade-in-on-scroll";
-import { useLanguage } from "./language-context";
+import { useCart } from "./cart-context";
 
 export function FeaturedProducts() {
   const { ref, visible } = useFadeInOnScroll();
-  const { language } = useLanguage();
+  const { addItem } = useCart();
 
   return (
-    <section id="top-products" className="section py-8 sm:py-12">
+    <section id="top-products" className="section py-10 sm:py-14">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <div className="mb-6">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Seleccion para Espana" : "Curated for Spain"}</p>
-          <h2 className="text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Top productos" : "Top Products"}</h2>
-        </div>
+        <h2 className="mb-7 text-3xl font-extrabold text-text">Top Products</h2>
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {products.map((product) => (
-            <article key={product.id} className="card-premium group overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm hover:shadow-md">
+            <article key={product.id} className="group card-premium overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm hover:shadow-md">
               <div className="relative overflow-hidden">
+                <span className="absolute left-3 top-3 z-10 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-white">
+                  Best Seller
+                </span>
                 <Image
                   src={product.images[0]}
                   alt={product.name}
@@ -31,20 +31,23 @@ export function FeaturedProducts() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   className="h-[21rem] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
-                <Link href={`/product/${product.id}`} className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-xl bg-primary px-4 py-2 text-[14px] font-semibold text-white opacity-0 transition duration-300 group-hover:opacity-100">
-                  {language === "es" ? "Anadir al carrito" : "Add to Cart"}
-                </Link>
               </div>
               <div className="p-4">
-                <h3 className="text-xl font-bold text-text">{product.name}</h3>
-                <p className="mt-1 text-[22px] font-extrabold text-text">EUR {product.price}</p>
-                <div className="mt-2 flex items-center gap-1 text-gold">
+                <Link href={`/product/${product.id}`} className="text-lg font-bold text-text hover:text-accent">
+                  {product.name}
+                </Link>
+                <div className="mt-2 flex items-center gap-1 text-accent">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} size={14} fill={i < Math.round(product.rating) ? "currentColor" : "none"} />
                   ))}
-                  <span className="ml-1 text-[13px] font-semibold text-muted">{product.rating}</span>
                 </div>
-                <p className="mt-2 text-[15px] text-muted">{product.description}</p>
+                <p className="mt-2 text-[21px] font-extrabold text-text">€{product.price}</p>
+                <button
+                  onClick={() => addItem(product.id, 1)}
+                  className="btn-hover mt-3 w-full rounded-[10px] bg-accent px-4 py-2.5 text-[14px] font-semibold text-white"
+                >
+                  Add to cart
+                </button>
               </div>
             </article>
           ))}

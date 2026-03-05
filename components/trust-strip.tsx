@@ -1,44 +1,28 @@
 "use client";
 
-import { CreditCard, Headphones, ShieldCheck, Truck } from "lucide-react";
+import { Headphones, ShieldCheck, Truck, Wallet } from "lucide-react";
 import { useFadeInOnScroll } from "@/lib/use-fade-in-on-scroll";
-import { useLanguage } from "./language-context";
 
 const items = [
-  { icon: Truck, title: "Fast Delivery in Europe" },
-  { icon: ShieldCheck, title: "Secure Payments" },
-  { icon: CreditCard, title: "Multiple Payment Methods" },
-  { icon: Headphones, title: "24/7 Support" }
+  { icon: Truck, title: "Fast Delivery", text: "24-48h delivery across Spain" },
+  { icon: ShieldCheck, title: "Secure Payment", text: "Protected SSL checkout" },
+  { icon: Wallet, title: "Best Prices", text: "Competitive European pricing" },
+  { icon: Headphones, title: "Support", text: "Professional customer support" }
 ];
 
 export function TrustStrip() {
   const { ref, visible } = useFadeInOnScroll();
-  const { language } = useLanguage();
 
   return (
-    <section className="section py-8 sm:py-12">
+    <section className="section py-10 sm:py-14">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <div className="mb-6">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Compra con confianza" : "Buy with confidence"}</p>
-          <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-            {language === "es" ? "Por que confian en nosotros" : "Why Customers Trust Us"}
-          </h2>
-        </div>
+        <h2 className="mb-7 text-3xl font-extrabold text-text">Why Choose Us</h2>
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
-            <article key={item.title} className="card-premium rounded-xl border border-black/10 bg-white p-5 shadow-sm">
+            <article key={item.title} className="rounded-xl border border-black/10 bg-white p-5 shadow-sm">
               <item.icon size={22} className="text-accent" />
-              <h3 className="mt-3 text-[17px] font-bold text-text">
-                {language === "es"
-                  ? item.title === "Fast Delivery in Europe"
-                    ? "Entrega rapida en Europa"
-                    : item.title === "Secure Payments"
-                      ? "Pagos seguros"
-                      : item.title === "Multiple Payment Methods"
-                        ? "Multiples metodos de pago"
-                        : "Soporte 24/7"
-                  : item.title}
-              </h3>
+              <h3 className="mt-3 text-[18px] font-bold text-text">{item.title}</h3>
+              <p className="mt-1 text-[15px] text-muted">{item.text}</p>
             </article>
           ))}
         </div>

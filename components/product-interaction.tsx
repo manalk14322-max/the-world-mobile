@@ -4,21 +4,24 @@ import Link from "next/link";
 import { useState } from "react";
 import { QuantitySelector } from "./quantity-selector";
 import { BadgeCheck, ShieldCheck, Truck } from "lucide-react";
+import { useCart } from "./cart-context";
 
 type Props = {
+  productId: string;
   colors: string[];
   sizes: string[];
 };
 
-export function ProductInteraction({ colors, sizes }: Props) {
+export function ProductInteraction({ productId, colors, sizes }: Props) {
   const [color, setColor] = useState(colors[0]);
   const [size, setSize] = useState(sizes[0]);
   const [qty, setQty] = useState(1);
   const [pulse, setPulse] = useState(false);
+  const { addItem } = useCart();
 
   const onAddCart = () => {
     setPulse(true);
-    window.dispatchEvent(new Event("cart:add"));
+    addItem(productId, qty);
     setTimeout(() => setPulse(false), 460);
   };
 

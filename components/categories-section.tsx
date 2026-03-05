@@ -1,38 +1,42 @@
 "use client";
 
-import { BadgePercent, Smartphone, Usb } from "lucide-react";
+import Image from "next/image";
 import { useFadeInOnScroll } from "@/lib/use-fade-in-on-scroll";
-import { useLanguage } from "./language-context";
 
 const categories = [
-  { label: "Phones", icon: Smartphone },
-  { label: "Accessories", icon: Usb },
-  { label: "Deals", icon: BadgePercent }
+  {
+    title: "Smartphones",
+    image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=1100&q=80"
+  },
+  {
+    title: "Accessories",
+    image: "https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&w=1100&q=80"
+  },
+  {
+    title: "Wireless Earbuds",
+    image: "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f37?auto=format&fit=crop&w=1100&q=80"
+  },
+  {
+    title: "Chargers & Cables",
+    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=1100&q=80"
+  }
 ];
 
 export function CategoriesSection() {
   const { ref, visible } = useFadeInOnScroll();
-  const { language } = useLanguage();
 
   return (
-    <section id="categories" className="section py-8 sm:py-12">
+    <section id="categories" className="section py-10 sm:py-14">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <div className="mb-5">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-muted">{language === "es" ? "Coleccion destacada" : "Featured Collection"}</p>
-          <h2 className="text-2xl font-extrabold text-text sm:text-3xl">{language === "es" ? "Categorias premium" : "Premium Categories"}</h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <h2 className="mb-7 text-3xl font-extrabold text-text">Shop by Category</h2>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {categories.map((category) => (
-            <article key={category.label} className="group rounded-xl border border-black/10 bg-white p-6 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-md">
-              <div className="inline-flex rounded-xl bg-secondary-bg p-3 text-accent">
-                <category.icon size={22} />
+            <article key={category.title} className="group card-premium overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm hover:shadow-md">
+              <div className="relative">
+                <Image src={category.image} alt={category.title} width={1100} height={800} className="h-64 w-full object-cover transition duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">{category.title}</h3>
               </div>
-              <h3 className="mt-4 text-xl font-bold">{language === "es" ? (category.label === "Phones" ? "Telefonos" : category.label === "Accessories" ? "Accesorios" : "Ofertas") : category.label}</h3>
-              <p className="mt-1 text-[15px] text-muted">
-                {language === "es"
-                  ? `Explora ${category.label === "Phones" ? "telefonos" : category.label === "Accessories" ? "accesorios" : "ofertas"} premium con entrega rapida.`
-                  : `Explore premium ${category.label.toLowerCase()} with fast EU delivery.`}
-              </p>
             </article>
           ))}
         </div>

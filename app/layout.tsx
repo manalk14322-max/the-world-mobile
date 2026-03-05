@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { LanguageProvider } from "@/components/language-context";
+import { CartProvider } from "@/components/cart-context";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.className} bg-background text-text antialiased`}>
         <LanguageProvider>
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
+          <CartProvider>
+            <SiteHeader />
+            <main>{children}</main>
+            <SiteFooter />
+          </CartProvider>
         </LanguageProvider>
       </body>
     </html>
