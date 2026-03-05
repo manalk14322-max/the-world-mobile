@@ -4,7 +4,6 @@ import { FeaturedProducts } from "@/components/featured-products";
 import { TrustStrip } from "@/components/trust-strip";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { NewsletterSection } from "@/components/newsletter-section";
-import { PromotionBanner } from "@/components/promotion-banner";
 
 export default function HomePage() {
   return (
@@ -13,7 +12,6 @@ export default function HomePage() {
       <CategoriesSection />
       <FeaturedProducts />
       <TrustStrip />
-      <PromotionBanner />
       <TestimonialsSection />
       <NewsletterSection />
     </>

@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "./language-context";
 
 const images = [
-  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1510552776732-01acc4b7ddc5?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=crop&w=1900&q=80"
+  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+  "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+  "https://images.unsplash.com/photo-1510552776732-01acc4b7ddc5",
+  "https://images.unsplash.com/photo-1512499617640-c2f999098c01"
 ];
 
 const copy = {
