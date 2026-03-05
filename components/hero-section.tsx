@@ -111,19 +111,19 @@ export function HeroSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0F2B6E]/86 via-[#1E3A8A]/56 to-[#1E3A8A]/24" />
 
-        <div className="absolute left-4 right-4 top-4 z-20 hidden items-center gap-6 rounded-xl border border-white/20 bg-white/86 px-4 py-2.5 backdrop-blur lg:flex">
+        <div className="absolute left-4 right-4 top-4 z-20 hidden items-center gap-6 rounded-xl border border-white/25 bg-[#0F1F48]/55 px-4 py-2.5 backdrop-blur-md lg:flex">
           <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-3.5 py-1.5 text-[13px] font-semibold text-white">
             <Menu size={16} />
             {language === "es" ? "All Categories" : "All Categories"}
           </button>
           <div className="flex items-center gap-7">
             {nav.map((item) => (
-              <Link key={item} href="/#top-products" className="text-[14px] font-semibold text-[#1E293B] transition hover:text-[#2E63D7]">
+              <Link key={item} href="/#top-products" className="text-[14px] font-semibold text-white/95 transition hover:text-[#BFD2FF]">
                 {item}
               </Link>
             ))}
           </div>
-          <button className="ml-auto rounded-full border border-black/10 bg-white p-2 text-[#1E293B]">
+          <button className="ml-auto rounded-full border border-white/35 bg-white/95 p-2 text-[#1E293B]">
             <User size={16} />
           </button>
         </div>
