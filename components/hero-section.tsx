@@ -79,6 +79,7 @@ const copy = {
 
 export function HeroSection() {
   const [index, setIndex] = useState(0);
+  const [showStickyBar, setShowStickyBar] = useState(false);
   const { language } = useLanguage();
   const t = copy[language];
   const slide = slides[index];
@@ -90,27 +91,37 @@ export function HeroSection() {
     return () => window.clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setShowStickyBar(window.scrollY > 260);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section className="section pb-14 pt-6">
-      <div className="container sticky top-24 z-30 mb-3 hidden lg:block">
-        <div className="mx-auto flex max-w-[1020px] items-center gap-6 rounded-xl border border-white/25 bg-[#0F1F48]/60 px-4 py-3 text-white backdrop-blur-md">
-          <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-4 py-2 text-[14px] font-semibold">
-            <Menu size={16} />
-            All Categories
-          </button>
-          <div className="flex items-center gap-7">
-            {t.nav.map((item) => (
-              <Link key={item} href="/#top-products" className="text-[14px] font-semibold text-white/95 transition hover:text-[#C9D9FF]">
-                {item}
-              </Link>
-            ))}
+      {showStickyBar && (
+        <div className="fixed left-0 right-0 top-20 z-40 hidden lg:block">
+          <div className="container">
+            <div className="mx-auto flex max-w-[1020px] items-center gap-6 rounded-xl border border-white/20 bg-[#0F1F48]/88 px-4 py-2.5 text-white shadow-md backdrop-blur-md">
+              <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-4 py-2 text-[13px] font-semibold">
+                <Menu size={15} />
+                All Categories
+              </button>
+              <div className="flex items-center gap-7">
+                {t.nav.map((item) => (
+                  <Link key={item} href="/#top-products" className="text-[13px] font-semibold text-white/95 transition hover:text-[#C9D9FF]">
+                    {item}
+                  </Link>
+                ))}
+              </div>
+              <button className="ml-auto rounded-full border border-white/40 bg-white/95 p-2 text-[#1E293B]">
+                <User size={15} />
+              </button>
+            </div>
           </div>
-          <button className="ml-auto rounded-full border border-white/40 bg-white/95 p-2 text-[#1E293B]">
-            <User size={16} />
-          </button>
         </div>
-      </div>
-
+      )}
       <div className="container">
         <div className="relative mx-auto max-w-[1020px] overflow-hidden rounded-xl border border-black/10 shadow-md">
           <Image
@@ -124,6 +135,22 @@ export function HeroSection() {
             sizes="(max-width: 1024px) 100vw, 1020px"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A1D4F]/84 via-[#173B86]/52 to-[#173B86]/22" />
+          <div className="absolute left-4 right-4 top-4 z-20 hidden items-center gap-6 rounded-xl border border-white/25 bg-[#0F1F48]/60 px-4 py-3 text-white backdrop-blur-md lg:flex">
+            <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-4 py-2 text-[14px] font-semibold">
+              <Menu size={16} />
+              All Categories
+            </button>
+            <div className="flex items-center gap-7">
+              {t.nav.map((item) => (
+                <Link key={item} href="/#top-products" className="text-[14px] font-semibold text-white/95 transition hover:text-[#C9D9FF]">
+                  {item}
+                </Link>
+              ))}
+            </div>
+            <button className="ml-auto rounded-full border border-white/40 bg-white/95 p-2 text-[#1E293B]">
+              <User size={16} />
+            </button>
+          </div>
 
           <button
             onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
