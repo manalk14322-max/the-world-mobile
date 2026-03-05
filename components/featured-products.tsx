@@ -10,18 +10,20 @@ import { useCart } from "./cart-context";
 export function FeaturedProducts() {
   const { ref, visible } = useFadeInOnScroll();
   const { addItem } = useCart();
+  const trending = products.filter((product) => product.isTrending).slice(0, 8);
 
   return (
     <section id="top-products" className="section py-10 sm:py-14">
       <div ref={ref} className={`container fade-in ${visible ? "visible" : ""}`}>
-        <h2 className="mb-7 text-3xl font-extrabold text-text">Top Products</h2>
+        <h2 className="mb-7 text-3xl font-extrabold text-text">Trending Products</h2>
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {products.map((product) => (
+          {trending.map((product) => (
             <article key={product.id} className="group card-premium overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm hover:shadow-md">
               <div className="relative overflow-hidden">
-                <span className="absolute left-3 top-3 z-10 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-white">
-                  Best Seller
-                </span>
+                <div className="absolute left-3 top-3 z-10 flex gap-2">
+                  {product.isBestSeller && <span className="rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-white">BEST SELLER</span>}
+                  {product.isNew && <span className="rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold text-white">NEW</span>}
+                </div>
                 <Image
                   src={product.images[0]}
                   alt={product.name}
@@ -29,7 +31,7 @@ export function FeaturedProducts() {
                   height={760}
                   quality={80}
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                  className="h-[21rem] w-full object-cover transition duration-500 group-hover:scale-105"
+                  className="image-tilt h-[21rem] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-4">

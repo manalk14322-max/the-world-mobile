@@ -1,9 +1,11 @@
 import { HeroSection } from "@/components/hero-section";
 import { CategoriesSection } from "@/components/categories-section";
 import { FeaturedProducts } from "@/components/featured-products";
+import { BestSellersSection } from "@/components/best-sellers-section";
 import { TrustStrip } from "@/components/trust-strip";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { NewsletterSection } from "@/components/newsletter-section";
+import { PromotionBanner } from "@/components/promotion-banner";
 
 export default function HomePage() {
   return (
@@ -11,6 +13,8 @@ export default function HomePage() {
       <HeroSection />
       <CategoriesSection />
       <FeaturedProducts />
+      <BestSellersSection />
+      <PromotionBanner />
       <TrustStrip />
       <TestimonialsSection />
       <NewsletterSection />

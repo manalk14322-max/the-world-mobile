@@ -61,7 +61,7 @@ export function HeroSection() {
               priority={idx === 0}
               quality={82}
               sizes="100vw"
-              className={`absolute inset-0 h-[620px] w-full object-cover transition-all duration-700 ${
+              className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
                 idx === active ? "scale-105 opacity-100" : "scale-100 opacity-0"
               }`}
             />
@@ -74,7 +74,7 @@ export function HeroSection() {
             }}
           />
 
-          <div className="relative flex min-h-[620px] items-center">
+          <div className="relative flex min-h-[72vh] items-center sm:min-h-[78vh] lg:min-h-[82vh]">
             <div className="max-w-3xl px-6 py-12 text-white sm:px-10">
               <p className="inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.12em]">
                 {text.top}

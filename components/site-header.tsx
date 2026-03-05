@@ -10,14 +10,14 @@ import { useCart } from "./cart-context";
 const navByLanguage = {
   es: [
     { label: "Inicio", href: "/" },
-    { label: "Tienda", href: "/#top-products" },
+    { label: "Tienda", href: "/shop" },
     { label: "Categorías", href: "/#categories" },
     { label: "Ofertas", href: "/#promotion" },
     { label: "Contacto", href: "/#newsletter" }
   ],
   en: [
     { label: "Home", href: "/" },
-    { label: "Shop", href: "/#top-products" },
+    { label: "Shop", href: "/shop" },
     { label: "Categories", href: "/#categories" },
     { label: "Offers", href: "/#promotion" },
     { label: "Contact", href: "/#newsletter" }
