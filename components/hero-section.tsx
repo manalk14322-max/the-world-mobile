@@ -8,86 +8,80 @@ import { useLanguage } from "./language-context";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=80",
-    esTitle: "Super ofertas en moviles y accesorios premium",
-    enTitle: "Super deals on premium mobiles and accessories",
-    esSubtitle: "Productos originales con entrega rapida y soporte experto.",
-    enSubtitle: "Original products with fast delivery and expert support."
+    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1800&q=80",
+    esTitle: "Nueva serie premium disponible",
+    enTitle: "New premium series now available",
+    esSubtitle: "Modelos de alto rendimiento con entrega 24-48h en Espana.",
+    enSubtitle: "High-performance models with 24-48h delivery across Spain."
   },
   {
-    image: "https://images.unsplash.com/photo-1583573636246-18cb2246697f?auto=format&fit=crop&w=1900&q=80",
-    esTitle: "Nuevos lanzamientos para clientes exigentes",
-    enTitle: "New launches, superior shopping experience",
-    esSubtitle: "Descubre los modelos mas buscados con garantia europea.",
-    enSubtitle: "Explore the most wanted models with official European warranty."
+    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1800&q=80",
+    esTitle: "Accesorios originales para uso diario",
+    enTitle: "Original accessories for everyday use",
+    esSubtitle: "Fundas, protectores y carga rapida con garantia europea.",
+    enSubtitle: "Cases, protectors and fast charging with EU warranty."
   },
   {
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1900&q=80",
-    esTitle: "Smartphones de alta gama al mejor precio",
-    enTitle: "High-end smartphones at the best value",
-    esSubtitle: "Precios transparentes, pago seguro y soporte experto.",
-    enSubtitle: "Transparent pricing, secure checkout, and expert support."
+    image: "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=1800&q=80",
+    esTitle: "Ofertas exclusivas por tiempo limitado",
+    enTitle: "Exclusive limited-time offers",
+    esSubtitle: "Precios especiales en smartphones seleccionados.",
+    enSubtitle: "Special pricing on selected smartphones."
   },
   {
-    image: "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=1900&q=80",
-    esTitle: "Compra facil, envio rapido, confianza total",
-    enTitle: "Elegant shopping, fast shipping, complete trust",
-    esSubtitle: "Todo lo que necesitas para comprar con tranquilidad.",
-    enSubtitle: "Everything you need for a confident purchase journey."
+    image: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1800&q=80",
+    esTitle: "Compra segura, rapida y profesional",
+    enTitle: "Secure, fast and professional shopping",
+    esSubtitle: "Pago SSL, devolucion 30 dias y soporte experto.",
+    enSubtitle: "SSL checkout, 30-day returns and expert support."
   },
   {
-    image: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1900&q=80",
-    esTitle: "Accesorios esenciales para potenciar tu telefono",
-    enTitle: "Essential accessories to elevate your phone",
-    esSubtitle: "Calidad premium en cada detalle, pensada para Europa.",
-    enSubtitle: "Premium quality in every detail, tailored for Europe."
+    image: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=1800&q=80",
+    esTitle: "Novedades semanales para tu tienda",
+    enTitle: "Weekly new arrivals for your store",
+    esSubtitle: "Productos actualizados con stock real.",
+    enSubtitle: "Updated catalog with real-time stock."
   },
   {
-    image: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=1900&q=80",
-    esTitle: "Rendimiento, diseno y seguridad en un solo sitio",
-    enTitle: "Performance, design and security in one place",
-    esSubtitle: "Tu tienda moderna para tecnologia movil en Espana.",
-    enSubtitle: "Your modern destination for mobile technology in Spain."
+    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1800&q=80",
+    esTitle: "Calidad premium con estilo europeo",
+    enTitle: "Premium quality with European style",
+    esSubtitle: "Seleccion cuidada para clientes exigentes.",
+    enSubtitle: "Curated selection for demanding customers."
   },
   {
-    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1900&q=80",
-    esTitle: "The world mobile: tecnologia con garantia real",
-    enTitle: "The world mobile: quality that builds trust",
-    esSubtitle: "Mas de 2,000 clientes satisfechos ya compran con nosotros.",
-    enSubtitle: "Trusted by 2,000+ satisfied customers across Spain."
+    image: "https://images.unsplash.com/photo-1583573636246-18cb2246697f?auto=format&fit=crop&w=1800&q=80",
+    esTitle: "Galaxy, iPhone y mas en un solo lugar",
+    enTitle: "Galaxy, iPhone and more in one place",
+    esSubtitle: "La mejor experiencia de compra para movil.",
+    enSubtitle: "The best shopping experience for mobile tech."
   }
 ];
 
-const staticCopy = {
+const copy = {
   es: {
-    primary: "Comprar ahora",
-    secondary: "Ver colecciones",
-    badge1: "Entrega 24-48h en Espana",
-    badge2: "Pago seguro SSL",
-    badge3: "Garantia oficial europea",
-    trust: "Mas de 2,000 clientes satisfechos en Espana"
+    nav: ["Store", "Nuestro Contacto", "Novedades", "Oferta"],
+    cta1: "Comprar ahora",
+    cta2: "Ver colecciones",
+    b1: "Entrega 24-48h",
+    b2: "Pago seguro SSL",
+    b3: "Garantia EU oficial"
   },
   en: {
-    primary: "Shop Now",
-    secondary: "View Collections",
-    badge1: "24-48h delivery in Spain",
-    badge2: "Secure SSL checkout",
-    badge3: "Official EU warranty",
-    trust: "Trusted by 2,000+ satisfied customers in Spain"
+    nav: ["Store", "Our Contact", "New Arrivals", "Offers"],
+    cta1: "Shop now",
+    cta2: "View collections",
+    b1: "24-48h delivery",
+    b2: "Secure SSL checkout",
+    b3: "Official EU warranty"
   }
-} as const;
-
-const heroNav = {
-  es: ["Store", "Nuestro Contacto", "Novedades", "Oferta"],
-  en: ["Store", "Our Contact", "New Arrivals", "Offers"]
 } as const;
 
 export function HeroSection() {
   const [index, setIndex] = useState(0);
   const { language } = useLanguage();
+  const t = copy[language];
   const slide = slides[index];
-  const text = staticCopy[language];
-  const nav = heroNav[language];
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -97,93 +91,90 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="section pb-16 pt-8 sm:pt-10">
-      <div className="container relative overflow-hidden rounded-xl border border-black/10 shadow-md">
-        <Image
-          src={slide.image}
-          alt="Premium mobile showcase"
-          width={1900}
-          height={980}
-          priority
-          quality={82}
-          className="h-[560px] w-full object-cover transition duration-700"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F2B6E]/86 via-[#1E3A8A]/56 to-[#1E3A8A]/24" />
-
-        <div className="absolute left-4 right-4 top-4 z-20 hidden items-center gap-6 rounded-xl border border-white/25 bg-[#0F1F48]/55 px-4 py-2.5 backdrop-blur-md lg:flex">
-          <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-3.5 py-1.5 text-[13px] font-semibold text-white">
+    <section className="section pb-14 pt-6">
+      <div className="container sticky top-24 z-30 mb-3 hidden lg:block">
+        <div className="mx-auto flex max-w-[1020px] items-center gap-6 rounded-xl border border-white/25 bg-[#0F1F48]/60 px-4 py-3 text-white backdrop-blur-md">
+          <button className="inline-flex items-center gap-2 rounded-full bg-[#2E63D7] px-4 py-2 text-[14px] font-semibold">
             <Menu size={16} />
-            {language === "es" ? "All Categories" : "All Categories"}
+            All Categories
           </button>
           <div className="flex items-center gap-7">
-            {nav.map((item) => (
-              <Link key={item} href="/#top-products" className="text-[14px] font-semibold text-white/95 transition hover:text-[#BFD2FF]">
+            {t.nav.map((item) => (
+              <Link key={item} href="/#top-products" className="text-[14px] font-semibold text-white/95 transition hover:text-[#C9D9FF]">
                 {item}
               </Link>
             ))}
           </div>
-          <button className="ml-auto rounded-full border border-white/35 bg-white/95 p-2 text-[#1E293B]">
+          <button className="ml-auto rounded-full border border-white/40 bg-white/95 p-2 text-[#1E293B]">
             <User size={16} />
           </button>
         </div>
+      </div>
 
-        <button
-          onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
-          className="btn-hover absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/40 bg-white/15 p-2 text-white backdrop-blur"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        <button
-          onClick={() => setIndex((prev) => (prev + 1) % slides.length)}
-          className="btn-hover absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/40 bg-white/15 p-2 text-white backdrop-blur"
-          aria-label="Next slide"
-        >
-          <ChevronRight size={20} />
-        </button>
+      <div className="container">
+        <div className="relative mx-auto max-w-[1020px] overflow-hidden rounded-xl border border-black/10 shadow-md">
+          <Image
+            src={slide.image}
+            alt="Campaign banner"
+            width={1800}
+            height={1200}
+            priority
+            quality={82}
+            className="h-[650px] w-full object-cover"
+            sizes="(max-width: 1024px) 100vw, 1020px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1D4F]/84 via-[#173B86]/52 to-[#173B86]/22" />
 
-        <div className="absolute inset-0 flex items-center pt-16 lg:pt-10">
-          <div className="max-w-2xl px-6 sm:px-10">
-            <div className="rounded-2xl border border-white/20 bg-black/20 p-5 backdrop-blur-sm sm:p-7">
-            <p className="mb-3 inline-flex rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/95">
-              {language === "es" ? "Tienda premium en Espana" : "Premium store for Spain"}
-            </p>
-            <h1 className="text-3xl font-black leading-[1.05] text-white sm:text-4xl lg:text-5xl">
-              {language === "es" ? slide.esTitle : slide.enTitle}
-            </h1>
-            <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-white/90">
-              {language === "es" ? slide.esSubtitle : slide.enSubtitle}
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/#top-products" className="btn-hover cta-glow rounded-xl bg-primary px-8 py-4 text-[17px] font-semibold text-white">
-                {text.primary}
-              </Link>
-              <Link href="/#categories" className="btn-hover rounded-xl border border-white/70 px-6 py-3 text-[16px] font-semibold transition hover:bg-white hover:text-text">
-                {text.secondary}
-              </Link>
-            </div>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge1}</span>
-              <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge2}</span>
-              <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[13px] font-semibold text-white/95">{text.badge3}</span>
-            </div>
-            <div className="mt-4 rounded-lg border border-white/25 bg-white/10 px-3 py-2 text-[13px] font-semibold text-white/95">
-              {text.trust}
-            </div>
+          <button
+            onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
+            className="btn-hover absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/40 bg-white/10 p-2 text-white backdrop-blur"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={() => setIndex((prev) => (prev + 1) % slides.length)}
+            className="btn-hover absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/40 bg-white/10 p-2 text-white backdrop-blur"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={20} />
+          </button>
+
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-[560px] px-7 text-white sm:px-9">
+              <div className="rounded-2xl border border-white/20 bg-black/25 p-5 backdrop-blur-sm sm:p-7">
+                <p className="mb-3 inline-flex rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/95">
+                  {language === "es" ? "Premium store for Spain" : "Premium store for Spain"}
+                </p>
+                <h1 className="text-4xl font-black leading-[1.04] sm:text-5xl">{language === "es" ? slide.esTitle : slide.enTitle}</h1>
+                <p className="mt-4 text-[18px] leading-relaxed text-white/90">{language === "es" ? slide.esSubtitle : slide.enSubtitle}</p>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Link href="/#top-products" className="btn-hover rounded-xl bg-[#2E63D7] px-7 py-3.5 text-[17px] font-semibold text-white shadow-md">
+                    {t.cta1}
+                  </Link>
+                  <Link href="/#categories" className="btn-hover rounded-xl border border-white/65 px-6 py-3 text-[16px] font-semibold text-white transition hover:bg-white hover:text-[#1E293B]">
+                    {t.cta2}
+                  </Link>
+                </div>
+                <div className="mt-5 flex flex-wrap gap-2 text-[12px] font-semibold">
+                  <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1">{t.b1}</span>
+                  <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1">{t.b2}</span>
+                  <span className="rounded-full border border-white/35 bg-white/10 px-3 py-1">{t.b3}</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              aria-label={`Slide ${i + 1}`}
-              className={`h-2.5 rounded-full transition ${i === index ? "w-7 bg-white" : "w-2.5 bg-white/60"}`}
-            />
-          ))}
+          <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                aria-label={`Slide ${i + 1}`}
+                className={`h-2.5 rounded-full transition ${i === index ? "w-7 bg-white" : "w-2.5 bg-white/60"}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
