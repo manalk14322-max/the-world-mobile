@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import heroOne from "@/public/1.png";
+import heroTwo from "@/public/2.png";
 
 const images = [
-  "/1.png",
-  "/2.png"
+  heroOne,
+  heroTwo
 ];
 
 export function HeroSection() {
@@ -24,7 +26,7 @@ export function HeroSection() {
         <div className="relative overflow-hidden rounded-xl border border-black/10 bg-black shadow-md">
           {images.map((src, idx) => (
             <Image
-              key={src}
+              key={src.src}
               src={src}
               alt="Premium mobile background"
               width={1900}
