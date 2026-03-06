@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import heroOne from "@/public/1.png";
-import heroTwo from "@/public/2.png";
+import heroThree from "@/public/3.png";
+import heroFour from "@/public/4.png";
 
 const images = [
   heroOne,
-  heroTwo
+  heroThree,
+  heroFour
 ];
 
 export function HeroSection() {
