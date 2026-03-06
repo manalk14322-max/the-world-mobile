@@ -4,10 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
-  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=1900&q=80",
-  "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1900&q=80"
+  "/1.png",
+  "/2.png"
 ];
 
 export function HeroSection() {
